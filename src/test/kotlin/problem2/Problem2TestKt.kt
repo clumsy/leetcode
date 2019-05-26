@@ -1,8 +1,10 @@
-import Problem2Kt.Companion.addTwoNumbers
-import Problem2Kt.ListNode
+package problem2
+
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
+import problem2.Problem2Kt.Companion.addTwoNumbers
+import problem2.Problem2Kt.ListNode
 
 class Problem2TestKt {
 

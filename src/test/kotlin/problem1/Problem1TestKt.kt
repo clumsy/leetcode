@@ -1,7 +1,9 @@
-import Problem1Kt.Companion.twoSum
+package problem1
+
 import org.hamcrest.core.IsEqual.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
+import problem1.Problem1Kt.Companion.twoSum
 
 class Problem1TestKt {
 

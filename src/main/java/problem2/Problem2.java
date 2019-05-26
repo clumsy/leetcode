@@ -1,3 +1,5 @@
+package problem2;
+
 import lombok.Data;
 
 public class Problem2 {

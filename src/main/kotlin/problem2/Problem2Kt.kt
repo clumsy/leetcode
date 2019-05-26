@@ -1,26 +1,28 @@
+package problem2
+
 class Problem2Kt {
-    data class ListNode(val `val`: Int, var next: ListNode? = null)
+    data class ListNode(val value: Int, var next: ListNode? = null)
 
     companion object {
-        fun addTwoNumbers(list1: ListNode, list2: ListNode): ListNode {
+        fun addTwoNumbers(l1: ListNode, l2: ListNode): ListNode {
             var carry = 0
-            var value = list1.`val` + list2.`val`
+            var value = l1.value + l2.value
             if (value > 9) {
                 carry = value / 10
                 value %= 10
             }
             val result = ListNode(value)
             var current = result
-            var l1 = list1.next
-            var l2 = list2.next
+            var l1 = l1.next
+            var l2 = l2.next
             while (l1 != null || l2 != null) {
                 value = carry
                 if (l1 != null) {
-                    value += l1.`val`
+                    value += l1.value
                     l1 = l1.next
                 }
                 if (l2 != null) {
-                    value += l2.`val`
+                    value += l2.value
                     l2 = l2.next
                 }
                 if (value > 9) {
