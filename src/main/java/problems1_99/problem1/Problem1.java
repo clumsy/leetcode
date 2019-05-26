@@ -1,4 +1,4 @@
-package problem1;
+package problems1_99.problem1;
 
 import java.util.HashMap;
 import java.util.Map;

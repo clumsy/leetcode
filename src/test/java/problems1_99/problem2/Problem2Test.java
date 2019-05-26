@@ -1,11 +1,11 @@
-package problem2;
+package problems1_99.problem2;
 
 import org.junit.Test;
-import problem2.Problem2.ListNode;
+import problems1_99.problem2.Problem2.ListNode;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
-import static problem2.Problem2.addTwoNumbers;
+import static problems1_99.problem2.Problem2.addTwoNumbers;
 
 public class Problem2Test {
 

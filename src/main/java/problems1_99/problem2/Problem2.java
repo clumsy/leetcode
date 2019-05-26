@@ -1,4 +1,4 @@
-package problem2;
+package problems1_99.problem2;
 
 import lombok.Data;
 
