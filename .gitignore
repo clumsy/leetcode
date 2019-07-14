@@ -2,3 +2,7 @@
 *.iml
 gradle/
 gradlew*
+.cargo-lock
+Cargo.lock
+.rustc_info.json
+target/

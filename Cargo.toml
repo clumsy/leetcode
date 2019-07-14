@@ -1,0 +1,9 @@
+[package]
+name = "leetcode"
+version = "0.0.1"
+authors = ["Alexander Jipa <alexander.jipa@gmail.com>"]
+include = ["src/**/*", "Cargo.toml"]
+
+[lib]
+name = "leetcode"
+path = "src/main/rust/lib.rs"
