@@ -1,4 +1,4 @@
-package problems900_999.problem938;
+package leetcode;
 
 import lombok.Data;
 

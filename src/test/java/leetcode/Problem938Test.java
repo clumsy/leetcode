@@ -1,11 +1,11 @@
-package problems900_999.problem938;
+package leetcode;
 
 import org.junit.Test;
 
+import static leetcode.Problem938.rangeSumBST;
+import static leetcode.Problem938.treeOf;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static problems900_999.problem938.Problem938.rangeSumBST;
-import static problems900_999.problem938.Problem938.treeOf;
 
 public class Problem938Test {
 

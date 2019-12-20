@@ -1,11 +1,11 @@
-package problems1_99.problem2;
+package leetcode;
 
+import leetcode.Problem2.ListNode;
 import org.junit.Test;
-import problems1_99.problem2.Problem2.ListNode;
 
+import static leetcode.Problem2.addTwoNumbers;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
-import static problems1_99.problem2.Problem2.addTwoNumbers;
 
 public class Problem2Test {
 

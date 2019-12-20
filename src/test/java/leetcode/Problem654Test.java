@@ -1,11 +1,11 @@
-package problems600_699;
+package leetcode;
 
+import leetcode.Problem654.TreeNode;
 import org.junit.Test;
-import problems600_699.Problem654.TreeNode;
 
+import static leetcode.Problem654.constructMaximumBinaryTree;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static problems600_699.Problem654.constructMaximumBinaryTree;
 
 public class Problem654Test {
     private static TreeNode treeOf(int x) {

@@ -1,4 +1,4 @@
-package problems1_99.problem7;
+package leetcode;
 
 public class Problem7 {
     public static int reverse(int x) {

@@ -1,11 +1,11 @@
-package problems600_699;
+package leetcode;
 
+import leetcode.Problem617.TreeNode;
 import org.junit.Test;
-import problems600_699.Problem617.TreeNode;
 
+import static leetcode.Problem617.mergeTrees;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static problems600_699.Problem617.mergeTrees;
 
 public class Problem617Test {
     private static TreeNode treeOf(int x) {

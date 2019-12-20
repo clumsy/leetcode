@@ -1,10 +1,10 @@
-package problems1_99.problem7;
+package leetcode;
 
 import org.junit.Test;
 
+import static leetcode.Problem7.reverse;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static problems1_99.problem7.Problem7.reverse;
 
 public class Problem7Test {
 

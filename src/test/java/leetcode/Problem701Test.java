@@ -1,11 +1,11 @@
-package problems700_799;
+package leetcode;
 
 import org.junit.Test;
 
+import static leetcode.Problem701.insertIntoBST;
+import static leetcode.Problem701.treeOf;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static problems700_799.Problem701.insertIntoBST;
-import static problems700_799.Problem701.treeOf;
 
 public class Problem701Test {
 

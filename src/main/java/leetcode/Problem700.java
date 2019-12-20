@@ -1,4 +1,4 @@
-package problems700_799;
+package leetcode;
 
 import lombok.Data;
 
