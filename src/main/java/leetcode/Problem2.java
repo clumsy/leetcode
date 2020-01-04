@@ -1,10 +1,6 @@
 package leetcode;
 
-import lombok.Data;
-
 public class Problem2 {
-
-    @Data
     public static class ListNode {
         int val;
         ListNode next;
