@@ -1,13 +1,6 @@
 package leetcode;
 
 public class Problem2 {
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-        ListNode(int x, ListNode n) { val = x; next = n;}
-    }
-
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0, value = l1.val + l2.val;
         if (value > 9) {
