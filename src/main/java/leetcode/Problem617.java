@@ -1,13 +1,6 @@
 package leetcode;
 
 public class Problem617 {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
-
     public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
         boolean noLeft = t1 == null;
         boolean noRight = t2 == null;
