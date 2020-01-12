@@ -6,7 +6,13 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class Problem215Test {
-    private final Problem215 solution = new Problem215();
+    protected Problem215 solution = new Problem215();
+
+    public static final class AlternativeTest extends Problem215Test {
+        {
+            this.solution = new Problem215.Alternative();
+        }
+    }
 
     @Test
     public void simple() {
