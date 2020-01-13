@@ -4,10 +4,12 @@ public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    TreeNode(int x) { val = x; }
+    TreeNode(int x) {
+        val = x;
+    }
 
     @Override
     public String toString() {
-        return left + " <- " + val + " -> " + right;
+        return left + " ← " + val + " → " + right;
     }
 }

@@ -12,14 +12,6 @@ public class Problem654Test {
     @Test
     public void simple() {
         assertThat(constructMaximumBinaryTree(new int[] {3, 2, 1, 6, 0, 5}),
-            is(treeOf(6,
-                treeOf(3,
-                    null,
-                    treeOf(2,
-                        null,
-                        treeOf(1))),
-                treeOf(5,
-                    treeOf(0),
-                    null))));
+            is(treeOf(6, 3, 5, null, 2, 0, null, null, 1)));
     }
 }

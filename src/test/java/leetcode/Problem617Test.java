@@ -11,25 +11,7 @@ public class Problem617Test {
 
     @Test
     public void simple() {
-        assertThat(mergeTrees(
-            treeOf(2,
-                treeOf(1,
-                    null,
-                    treeOf(4)),
-                treeOf(3,
-                    null,
-                    treeOf(7))),
-            treeOf(1,
-                treeOf(3,
-                    treeOf(5),
-                    null),
-                treeOf(2))),
-            is(treeOf(3,
-                treeOf(4,
-                    treeOf(5),
-                    treeOf(4)),
-                treeOf(5,
-                    null,
-                    treeOf(7)))));
+        assertThat(mergeTrees(treeOf(2, 1, 3, null, 4, null, 7), treeOf(1, 3, 2, 5, null)),
+            is(treeOf(3, 4, 5, 5, 4, null, 7)));
     }
 }

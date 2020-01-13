@@ -11,7 +11,7 @@ public class Problem100Test {
 
     @Test
     public void same() {
-        TreeNode tree = treeOf(1, treeOf(2), treeOf(3));
+        TreeNode tree = treeOf(1, 2, 3);
         assertThat(solution.isSameTree(tree, tree), is(true));
     }
 
@@ -22,7 +22,7 @@ public class Problem100Test {
 
     @Test
     public void hasNull() {
-        TreeNode tree = treeOf(1, null, treeOf(2));
+        TreeNode tree = treeOf(1, null, 2);
         assertThat(solution.isSameTree(tree, tree), is(true));
     }
 }

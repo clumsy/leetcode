@@ -13,19 +13,16 @@ public class Problem94Test {
 
     @Test
     public void simple() {
-        TreeNode tree = treeOf(1, null, treeOf(2, treeOf(3), null));
-        assertThat(solution.inorderTraversal(tree), is(asList(1, 3, 2)));
+        assertThat(solution.inorderTraversal(treeOf(1, null, 2, 3, null)), is(asList(1, 3, 2)));
     }
 
     @Test
     public void another() {
-        TreeNode tree = treeOf(2, treeOf(3, treeOf(1), null), null);
-        assertThat(solution.inorderTraversal(tree), is(asList(1, 3, 2)));
+        assertThat(solution.inorderTraversal(treeOf(2, 3, null, 1)), is(asList(1, 3, 2)));
     }
 
     @Test
     public void single() {
-        TreeNode tree = treeOf(1);
-        assertThat(solution.inorderTraversal(tree), is(singletonList(1)));
+        assertThat(solution.inorderTraversal(treeOf(1)), is(singletonList(1)));
     }
 }

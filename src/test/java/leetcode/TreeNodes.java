@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class TreeNodes {
     public static TreeNode bstOf(Integer... values) {
         int length = values.length;
@@ -32,14 +35,33 @@ public class TreeNodes {
         }
     }
 
-    public static TreeNode treeOf(int x) {
-        return treeOf(x, null, null);
-    }
-
-    public static TreeNode treeOf(int x, TreeNode left, TreeNode right) {
-        TreeNode result = new TreeNode(x);
-        result.left = left;
-        result.right = right;
-        return result;
+    public static TreeNode treeOf(Integer... values) {
+        TreeNode root = new TreeNode(values[0]);
+        Deque<TreeNode> queue = new LinkedList<>();
+        queue.addLast(root);
+        queue.addLast(null);
+        int length = values.length;
+        int index = 0;
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.removeFirst();
+            if (current != null) {
+                if (++index < length && values[index] != null) {
+                    current.left = new TreeNode(values[index]);
+                    queue.addLast(current.left);
+                }
+                if (++index < length && values[index] != null) {
+                    current.right = new TreeNode(values[index]);
+                    queue.addLast(current.right);
+                }
+                if (index == length) {
+                    return root;
+                }
+            } else {
+                if (!queue.isEmpty()) {
+                    queue.addLast(null);
+                }
+            }
+        }
+        return root;
     }
 }

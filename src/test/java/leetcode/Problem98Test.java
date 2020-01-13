@@ -11,38 +11,22 @@ public class Problem98Test {
 
     @Test
     public void valid() {
-        assertThat(solution.isValidBST(
-            treeOf(2,
-                treeOf(1),
-                treeOf(3))), is(true));
+        assertThat(solution.isValidBST(treeOf(2, 1, 3)), is(true));
     }
 
     @Test
     public void invalid() {
-        assertThat(solution.isValidBST(
-            treeOf(5,
-                treeOf(1),
-                treeOf(4,
-                    treeOf(3),
-                    treeOf(6)))), is(false));
+        assertThat(solution.isValidBST(treeOf(5, 1, 4, null, null, 3, 6)), is(false));
     }
 
     @Test
     public void invalidSameValue() {
-        assertThat(solution.isValidBST(
-            treeOf(1,
-                treeOf(1),
-                null)), is(false));
+        assertThat(solution.isValidBST(treeOf(1, 1, null)), is(false));
     }
 
     @Test
     public void complex() {
-        assertThat(solution.isValidBST(
-            treeOf(10,
-                treeOf(5),
-                treeOf(15,
-                    treeOf(6),
-                    treeOf(20)))), is(false));
+        assertThat(solution.isValidBST(treeOf(10, 5, 15, null, null, 6, 20)), is(false));
     }
 
     @Test
@@ -52,14 +36,7 @@ public class Problem98Test {
 
     @Test
     public void weird() {
-        assertThat(solution.isValidBST(
-            treeOf(3,
-                treeOf(1,
-                    treeOf(0),
-                    treeOf(2)),
-                treeOf(5,
-                    treeOf(4),
-                    treeOf(6)))), is(true));
+        assertThat(solution.isValidBST(treeOf(3, 1, 5, 0, 2, 4, 6)), is(true));
     }
 
     @Test
@@ -69,16 +46,7 @@ public class Problem98Test {
 
     @Test
     public void huge() {
-        assertThat(solution.isValidBST(
-            treeOf(3,
-                treeOf(1,
-                    treeOf(0),
-                    treeOf(2,
-                        null,
-                        treeOf(3))),
-                treeOf(5,
-                    treeOf(4),
-                    treeOf(6)))), is(false));
+        assertThat(solution.isValidBST(treeOf(3, 1, 5, 0, 2, 4, 6, null, null, null, 3)), is(false));
     }
 
 }
