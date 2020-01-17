@@ -56,36 +56,36 @@ public class Problem692 {
                     return count + 1;
                 });
             }
-            TrieNode[] roots = new TrieNode[length + 1];
+            TrieNode<String>[] roots = new TrieNode[length + 1];
             for (Map.Entry<String, Integer> entry : counts.entrySet()) {
                 String word = entry.getKey();
                 int count = entry.getValue();
-                TrieNode root = roots[count];
+                TrieNode<String> root = roots[count];
                 if (root == null) {
-                    root = new TrieNode();
+                    root = new TrieNode<>();
                     roots[count] = root;
                 }
                 addWord(root, word);
             }
             LinkedList<String> result = new LinkedList<>();
             for (int i = length; i >= 0 && result.size() < k; i--) {
-                TrieNode root = roots[i];
+                TrieNode<String> root = roots[i];
                 getWords(root, result, k);
             }
             return result;
         }
 
-        private void getWords(TrieNode root, List<String> result, int k) {
+        private void getWords(TrieNode<String> root, List<String> result, int k) {
             if (root == null) {
                 return;
             }
-            if (root.word != null) {
-                result.add(root.word);
+            if (root.val != null) {
+                result.add(root.val);
             }
             if (result.size() == k) {
                 return;
             }
-            for (TrieNode next : root.next) {
+            for (TrieNode<String> next : root.next) {
                 if (next != null) {
                     getWords(next, result, k);
                 }
@@ -100,7 +100,7 @@ public class Problem692 {
                 }
                 root = root.next[val];
             }
-            root.word = word;
+            root.val = word;
         }
     }
 

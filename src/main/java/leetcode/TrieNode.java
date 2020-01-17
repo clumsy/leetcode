@@ -1,10 +1,13 @@
 package leetcode;
 
-class TrieNode {
-    TrieNode[] next;
-    String word;
+class TrieNode<T> {
+    TrieNode<T>[] next;
+    T val;
     TrieNode() {
+        this(null);
+    }
+    TrieNode(T val) {
         this.next = new TrieNode[26];
-        this.word = null;
+        this.val = val;
     }
 }
