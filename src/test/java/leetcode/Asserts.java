@@ -10,6 +10,6 @@ public class Asserts {
         String message = actual.toString() + " != " + expected.toString();
         assertThat(message, actual.containsAll(expected), is(true));
         assertThat(message, expected.containsAll(actual), is(true));
-        assertThat(actual.size(), is(expected.size()));
+        assertThat(message, actual.size(), is(expected.size()));
     }
 }
