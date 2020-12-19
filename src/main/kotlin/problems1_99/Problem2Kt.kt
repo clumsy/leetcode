@@ -1,4 +1,4 @@
-package problems1_99.problem2
+package problems1_99
 
 object Problem2Kt {
     data class ListNode(val value: Int, var next: ListNode? = null)

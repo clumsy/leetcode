@@ -1,4 +1,4 @@
-package problems1_99.problem7
+package problems1_99
 
 object Problem7Kt {
     fun reverse(x: Int): Int {

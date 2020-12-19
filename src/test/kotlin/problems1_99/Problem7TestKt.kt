@@ -1,9 +1,9 @@
-package problems1_99.problem7
+package problems1_99
 
 import org.hamcrest.core.Is.`is`
 import org.junit.Assert.assertThat
 import org.junit.Test
-import problems1_99.problem7.Problem7Kt.reverse
+import problems1_99.Problem7Kt.reverse
 
 internal class Problem7TestKt {
 
