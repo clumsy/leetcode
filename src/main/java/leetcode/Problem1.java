@@ -4,18 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Problem1 {
-    public static int[] twoSum(int[] nums, int target) {
-        int size = nums.length;
-        Map<Integer, Integer> ints = new HashMap<>(size, 1f);
-        for (int i = 0; i < size; i++) {
-            ints.put(nums[i], i);
-        }
-        for (int i = 0; i < size; i++) {
-            Integer j = ints.get(target - nums[i]);
-            if (j != null && i != j) {
-                return new int[] {i, j};
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> numberWithIndex = new HashMap<>();
+        for (int i = 0, length = nums.length; i < length; i++) {
+            int num = nums[i];
+            int otherNumber = target - num;
+            Integer otherNumberIndex = numberWithIndex.get(otherNumber);
+            if (otherNumberIndex != null) {
+                return new int[] {otherNumberIndex, i};
             }
+            numberWithIndex.put(num, i);
         }
-        return new int[0];
+        throw new IllegalArgumentException();
     }
 }
