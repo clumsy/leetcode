@@ -12,25 +12,13 @@ import static org.junit.Assert.assertThat;
 public class Problem103Test {
     protected Problem103 solution = new Problem103();
 
-    public static final class Alternative1Test extends Problem103Test {
-        {
-            this.solution = new Problem103.Alternative1();
-        }
-    }
-
-    public static final class Alternative2Test extends Problem103Test {
-        {
-            this.solution = new Problem103.Alternative2();
-        }
-    }
-
     @Test
-    public void empty() {
+    public void example1() {
         assertThat(solution.zigzagLevelOrder(null), is(emptyList()));
     }
 
     @Test
-    public void simple() {
+    public void example2() {
         assertThat(solution.zigzagLevelOrder(treeOf(3, 9, 20, null, null, 15, 7)), is(
             asList(
                 singletonList(3),
@@ -39,7 +27,7 @@ public class Problem103Test {
     }
 
     @Test
-    public void bigger() {
+    public void example3() {
         assertThat(solution.zigzagLevelOrder(treeOf(1, 2, 3, 4, null, null, 5)), is(
             asList(
                 singletonList(1),
@@ -48,7 +36,7 @@ public class Problem103Test {
     }
 
     @Test
-    public void huge() {
+    public void example4() {
         assertThat(solution.zigzagLevelOrder(treeOf(0, 2, 4, 1, null, 3, -1, 5, 1, null, 6, null, 8)), is(
             asList(
                 singletonList(0),
