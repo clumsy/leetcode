@@ -1,14 +1,18 @@
 package leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class Node {
     public int val;
     public List<Node> children;
 
-    public Node() {}
+    public Node() {
+        children = new ArrayList<>();
+    }
 
     public Node(int _val) {
+        this();
         val = _val;
     }
 
