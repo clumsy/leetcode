@@ -24,7 +24,7 @@ public class Problem210Test {
             {3, 1},
             {3, 2}
         };
-        assertThat(solution.findOrder(4, prerequisites), is(new int[] {0, 1, 2, 3}));
+        assertThat(solution.findOrder(4, prerequisites), is(new int[] {0, 2, 1, 3}));
     }
 
     @Test

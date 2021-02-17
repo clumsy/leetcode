@@ -1,39 +1,57 @@
 package leetcode;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.*;
 
 public class Problem210 {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        int[] dependencyCount = new int[numCourses];
+        Map<Integer, List<Integer>> courseRequiredFor = new HashMap<>();
         for (int[] prerequisite : prerequisites) {
-            int before = prerequisite[0];
-            dependencyCount[before]++;
+            int course = prerequisite[1];
+            int neededForCourse = prerequisite[0];
+            List<Integer> requiredFor = courseRequiredFor.get(course);
+            if (requiredFor == null) {
+                requiredFor = new ArrayList<>();
+                courseRequiredFor.put(course, requiredFor);
+            }
+            requiredFor.add(neededForCourse);
         }
-        Queue<Integer> finishedCourses = new ArrayDeque<>(numCourses);
-        int finishedCoursesCount = 0;
-        int[] result = new int[numCourses];
+        Stack<Integer> stack = new Stack<>();
+        Set<Integer> finished = new HashSet<>();
+        Set<Integer> visited = new HashSet<>();
         for (int i = 0; i < numCourses; i++) {
-            if (dependencyCount[i] == 0) {
-                finishedCourses.add(i);
-                result[finishedCoursesCount++] = i;
+            int[] result = dfs(i, courseRequiredFor, finished, visited, stack);
+            if (result != null) {
+                return result;
             }
         }
-        while (!finishedCourses.isEmpty()) {
-            int finishedCourse = finishedCourses.remove();
-            for (int[] prerequisite : prerequisites) {
-                if (prerequisite[1] == finishedCourse) {
-                    int courseWithDependency = prerequisite[0];
-                    if (--dependencyCount[courseWithDependency] == 0) {
-                        finishedCourses.add(courseWithDependency);
-                        result[finishedCoursesCount++] = courseWithDependency;
-                    }
+        int i = 0;
+        int[] result = new int[numCourses];
+        while (!stack.isEmpty()) {
+            result[i++] = stack.pop();
+        }
+        return result;
+    }
+
+    private static int[] dfs(int course, Map<Integer, List<Integer>> courseRequiredFor, Set<Integer> finished, Set<Integer> visited, Stack<Integer> stack) {
+        if (finished.contains(course)) {
+            return null;
+        }
+        if (visited.contains(course)) {
+            return new int[0];
+        }
+        visited.add(course);
+        List<Integer> requiredFor = courseRequiredFor.remove(course);
+        if (requiredFor != null) {
+            for (Integer requiredForCourse : requiredFor) {
+                int[] result = dfs(requiredForCourse, courseRequiredFor, finished, visited, stack);
+                if (result != null) {
+                    return result;
                 }
             }
         }
-        if (finishedCoursesCount != numCourses) {
-            return new int[0];
-        }
-        return result;
+        visited.remove(course);
+        finished.add(course);
+        stack.push(course);
+        return null;
     }
 }
