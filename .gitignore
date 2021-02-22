@@ -5,3 +5,7 @@
 /.gradle
 gradle/
 gradlew*
+.classpath
+.project
+/.vscode
+/.settings
