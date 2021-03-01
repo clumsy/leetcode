@@ -1,11 +1,11 @@
 package leetcode;
 
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 import java.util.Arrays;
 
 import static org.hamcrest.core.Is.is;
-import org.junit.Test;
+import static org.junit.Assert.assertThat;
 
 public class Problem80Test {
     private final Problem80 solution = new Problem80();
@@ -14,13 +14,13 @@ public class Problem80Test {
     public void example1() {
         int[] array = new int[] {1,1,1,2,2,3};
         assertThat(solution.removeDuplicates(array), is(5));
-        assertThat(Arrays.equals(array, 0, 5, new int[] {1,1,2,2,3}, 0, 5), is(true));
+        assertThat(Arrays.copyOfRange(array, 0, 5), is(new int[] {1,1,2,2,3}));
     }
 
     @Test
     public void example2() {
         int[] array = new int[] {0,0,1,1,1,1,2,3,3};
         assertThat(solution.removeDuplicates(array), is(7));
-        assertThat(Arrays.equals(array, 0, 7, new int[] {0,0,1,1,2,3,3}, 0, 7), is(true));
+        assertThat(Arrays.copyOfRange(array, 0, 7), is(new int[] {0,0,1,1,2,3,3}));
     }
 }
