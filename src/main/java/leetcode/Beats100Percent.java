@@ -6,6 +6,7 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.TYPE;
 
+@Deprecated
 @Target(TYPE)
 @Retention(RetentionPolicy.SOURCE)
 public @interface Beats100Percent {
