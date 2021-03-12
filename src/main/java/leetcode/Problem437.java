@@ -29,27 +29,4 @@ public class Problem437 {
         path.remove(path.size() - 1);
         return count;
     }
-
-//    public int pathSum(TreeNode root, int sum) {
-//        if (root == null) {
-//            return 0;
-//        }
-//        int count = doPathSum(root, sum);
-//        count += pathSum(root.left, sum); // without root on the left
-//        count += pathSum(root.right, sum); // without root on the right
-//        return count;
-//    }
-//
-//    private int doPathSum(TreeNode root, int sum) {
-//        if (root == null) {
-//            return 0;
-//        }
-//        int count = 0;
-//        if (root.val == sum) {
-//            count++;
-//        }
-//        count += doPathSum(root.left,  sum - root.val); // starting with root and on the left
-//        count += doPathSum(root.right, sum - root.val); // starting with root and on the right
-//        return count;
-//    }
 }
