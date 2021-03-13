@@ -4,6 +4,7 @@ public enum Complexity {
     CONSTANT("O(1)"),
     LOGARITHMIC_N("O(log(N))"),
     LINEAR_N("O(N)"),
+    LINEAR_K("O(K)"),
     LINEARITHMIC_N("O(N*log(N))"),
     QUADRATIC_N("O(N^2)"),
     N_BY_M("O(N*M)"),
