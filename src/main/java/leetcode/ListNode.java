@@ -5,6 +5,7 @@ import java.util.StringJoiner;
 public class ListNode {
     int val;
     ListNode next;
+    ListNode() { }
     ListNode(int x) { val = x; }
 
     @Override
