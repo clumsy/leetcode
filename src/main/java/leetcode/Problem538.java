@@ -1,5 +1,6 @@
 package leetcode;
 
+@Algorithms(Algorithm.BINARY_TREE_MORRIS_TRAVERSAL)
 @BeatsPercent(31.83)
 @TimeComplexity(Complexity.LINEAR_N)
 @SpaceComplexity(Complexity.CONSTANT)
