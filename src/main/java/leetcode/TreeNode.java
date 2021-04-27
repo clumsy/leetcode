@@ -12,7 +12,7 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return (left != null ? left.val : null) + " ← " + val + " → " + ((right != null ? right.val : null));
+        return (left != null ? left.val : null) + " ↙ " + val + " ↘ " + ((right != null ? right.val : null));
     }
 
     @Override
