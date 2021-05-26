@@ -10,7 +10,8 @@ public enum Complexity {
     QUADRATIC_N("O(N²)"),
     N_BY_M("O(N×M)"),
     CUBIC_N("O(N³)"),
-    EXPONENTIAL_N("O(2ⁿ)");
+    EXPONENTIAL_N("O(2ⁿ)"),
+    UNKNOWN("O(?)");
 
     private final String value;
 
