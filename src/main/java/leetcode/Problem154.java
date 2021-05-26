@@ -1,8 +1,8 @@
 package leetcode;
 
 @BeatsPercent(100)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(worst = Complexity.LINEAR_N, best = Complexity.LOGARITHMIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem154 {
     public int findMin(int[] nums) {
         int lo = 0;
