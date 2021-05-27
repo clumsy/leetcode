@@ -3,6 +3,9 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_K)
 public class Problem216 {
     public List<List<Integer>> combinationSum3(int k, int n) {
         List<List<Integer>> result = new ArrayList<>();
