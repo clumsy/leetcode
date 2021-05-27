@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem96 {
     public int numTrees(int n) {
         if (n == 0) {

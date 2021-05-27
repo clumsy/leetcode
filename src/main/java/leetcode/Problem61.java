@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem61 {
     public ListNode rotateRight(ListNode head, int k) {
         int length = 0;

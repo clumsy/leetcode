@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode currentA = headA;

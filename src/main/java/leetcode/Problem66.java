@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem66 {
     public int[] plusOne(int[] digits) {
         int carry = 1;

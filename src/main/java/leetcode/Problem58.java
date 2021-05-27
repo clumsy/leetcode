@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem58 {
     public int lengthOfLastWord(String s) {
         int length = 0;

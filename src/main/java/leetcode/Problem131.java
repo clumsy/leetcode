@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem131 {
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();

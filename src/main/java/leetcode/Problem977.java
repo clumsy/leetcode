@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem977 {
     public int[] sortedSquares(int[] nums) {
         int left = 0;

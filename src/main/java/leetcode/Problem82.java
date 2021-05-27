@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem82 {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode newHead = new ListNode(0);

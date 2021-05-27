@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem67 {
     public String addBinary(String a, String b) {
         StringBuilder result = new StringBuilder(Math.max(a.length(), b.length()));

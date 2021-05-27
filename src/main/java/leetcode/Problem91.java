@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem91 {
     public int numDecodings(String s) {
         int N = s.length();

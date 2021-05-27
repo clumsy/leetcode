@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem139 {
     class TrieNode {
         boolean isTerminal;

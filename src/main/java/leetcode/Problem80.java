@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem80 {
     public int removeDuplicates(int[] nums) {
         int slow = 1;

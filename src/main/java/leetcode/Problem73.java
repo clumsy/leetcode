@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem73 {
     public void setZeroes(int[][] matrix) {
         int m = matrix.length;

@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem50 {
     public double myPow(double x, int n) {
         if (n == 0) {

@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem172 {
     public int trailingZeroes(int n) {
         int zeroes = 0;

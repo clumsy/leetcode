@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem59 {
     public int[][] generateMatrix(int n) {
         int[][] matrix = new int[n][n];

@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem86 {
     public ListNode partition(ListNode head, int x) {
         ListNode lessThanHead = new ListNode(x - 1);

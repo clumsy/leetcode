@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem95 {
     public List<TreeNode> generateTrees(int n) {
         boolean[] visited = new boolean[n + 1];

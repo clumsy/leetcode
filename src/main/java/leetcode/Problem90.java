@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem90 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);

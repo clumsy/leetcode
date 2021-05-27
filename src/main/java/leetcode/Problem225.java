@@ -3,7 +3,7 @@ package leetcode;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem225 {
     class MyStack {
         private Queue<Integer> head = new ArrayDeque<>();

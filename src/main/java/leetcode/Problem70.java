@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem70 {
     public int climbStairs(int n) {
         double phi = Math.sqrt(5);

@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem206 {
     public ListNode reverseList(ListNode head) {
         ListNode previous = null;

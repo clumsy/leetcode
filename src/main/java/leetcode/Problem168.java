@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem168 {
     public String convertToTitle(int n) {
         if (n == 1) {

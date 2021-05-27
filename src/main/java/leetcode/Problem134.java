@@ -1,6 +1,6 @@
 package leetcode;
 
-@Beats100Percent
+@BeatsPercent(100)
 public class Problem134 {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int overall = 0;
