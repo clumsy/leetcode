@@ -9,6 +9,7 @@ public enum Complexity {
     LINEARITHMIC_N("O(N×log(N))"),
     QUADRATIC_N("O(N²)"),
     N_BY_M("O(N×M)"),
+    N_PLUS_K("O(N+K)"),
     CUBIC_N("O(N³)"),
     EXPONENTIAL_N("O(2ⁿ)"),
     UNKNOWN("O(?)");
