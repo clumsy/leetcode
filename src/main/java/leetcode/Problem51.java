@@ -3,6 +3,9 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@BeatsPercent(65.81)
+@TimeComplexity(Complexity.FACTORIAL_N)
+@SpaceComplexity(Complexity.FACTORIAL_N)
 public class Problem51 {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> result = new ArrayList<>();
