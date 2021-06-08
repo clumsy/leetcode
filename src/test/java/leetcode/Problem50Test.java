@@ -10,11 +10,11 @@ public class Problem50Test {
 
     @Test
     public void example1() {
-        assertThat(solution.myPow(2, 10), is(1024));
+        assertThat(solution.myPow(2, 10), is(1024.));
     }
 
     @Test
     public void example2() {
-        assertThat(solution.myPow(2.1, 3), is(9.261));
+        assertThat(Math.abs(solution.myPow(2.1, 3) - 9.261) < 0.00000001d, is(true));
     }
 }
