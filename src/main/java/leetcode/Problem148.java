@@ -1,27 +1,50 @@
 package leetcode;
 
+@BeatsPercent(25.83)
+@TimeComplexity(Complexity.LINEARITHMIC_N)
+@SpaceComplexity(Complexity.CONSTANT)
 public class Problem148 {
     public ListNode sortList(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode prev = null;
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast != null && fast.next != null) {
-            prev = slow;
-            slow = slow.next;
-            fast = fast.next.next;
+        ListNode current = head;
+        int n = 0;
+        while (current != null) {
+            n++;
+            current = current.next;
         }
-        prev.next = null;
-        head = sortList(head);
-        slow = sortList(slow);
-        return merge(head, slow);
+        ListNode dummy_head = new ListNode();
+        dummy_head.next = head;
+        for (int size = 1; size < n; size *= 2) {
+            ListNode left = dummy_head.next;
+            ListNode tail = dummy_head;
+            while (left != null) {
+                ListNode right = split(left, size);
+                ListNode next = split(right, size);
+                tail = merge(left, right, tail);
+                left = next;
+            }
+        }
+        return dummy_head.next;
+    }
+    
+    private ListNode split(ListNode start, int size) {
+        size--; // stopping right before last item
+        while (start != null && size > 0) {
+            size--;
+            start = start.next;
+        }
+        if (start == null) {
+            return null;
+        }
+        ListNode next = start.next;
+        start.next = null;
+        return next;
     }
 
-    private ListNode merge(ListNode first, ListNode second) {
-        ListNode head = new ListNode();
-        ListNode current = head;
+    private ListNode merge(ListNode first, ListNode second, ListNode tail) {
+        ListNode current = tail;
         while (first != null || second != null) {
             if (first == null) {
                 current.next = second;
@@ -38,6 +61,6 @@ public class Problem148 {
             }
             current = current.next;
         }
-        return head.next;
+        return current;
     }
 }
