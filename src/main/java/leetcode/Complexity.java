@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Complexity {
     CONSTANT("O(1)"),
+    INFINITY("O(∞)"),
     LOGARITHMIC_N("O(log(N))"),
     SQRT_N("O(√N)"),
     LINEAR_N("O(N)"),
