@@ -14,7 +14,7 @@ public class Problem1670 {
 
         public void pushFront(int val) {
             first.offerFirst(val);
-            if (first.size() - 1 > second.size()) {
+            if (first.size() >= second.size()) {
                 second.offerFirst(first.pollLast());
             }
         }
@@ -29,14 +29,18 @@ public class Problem1670 {
 
         public void pushBack(int val) {
             second.offerLast(val);
-            if (second.size() > first.size()) {
+            if (first.size() < second.size() - 1) {
                 first.offerLast(second.pollFirst());
             }
         }
 
         public int popFront() {
             if (!first.isEmpty()) {
-                return safe(first.pollFirst());
+                int val = safe(first.pollFirst());
+                if (first.size() < second.size() - 1) {
+                    first.offerLast(second.pollFirst());
+                }
+                return val;
             }
             return safe(second.pollFirst());
         }
@@ -50,7 +54,11 @@ public class Problem1670 {
 
         public int popBack() {
             if (!second.isEmpty()) {
-                return safe(second.pollLast());
+                int val = safe(second.pollLast());
+                if (first.size() > second.size()) {
+                    second.offerFirst(first.pollLast());
+                }
+                return val;
             }
             return safe(first.pollLast());
         }
