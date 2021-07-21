@@ -12,6 +12,7 @@ public enum Complexity {
     N_BY_M("O(N×M)"),
     K_TO_N("O(kⁿ)"),
     N_PLUS_K("O(N+K)"),
+    N_PLUS_M("O(N+M)"),
     CUBIC_N("O(N³)"),
     EXPONENTIAL_N("O(2ⁿ)"),
     EXPONENTIAL_3K("O(3ᵏ)"),
