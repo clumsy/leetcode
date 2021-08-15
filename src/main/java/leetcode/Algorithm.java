@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    BREADTH_FIRST_SEARCH,
     DEPTH_FIRST_SEARCH,
     SORTING,
     BINARY_TREE_MORRIS_TRAVERSAL,
