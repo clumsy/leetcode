@@ -5,6 +5,7 @@ public enum Complexity {
     INFINITY("O(∞)"),
     LOGARITHMIC_N("O(log(N))"),
     SQRT_N("O(√N)"),
+    N_SQRT_N("O(N×√N)"),
     LINEAR_N("O(N)"),
     LINEAR_K("O(K)"),
     LINEARITHMIC_N("O(N×log(N))"),
