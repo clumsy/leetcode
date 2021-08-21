@@ -3,26 +3,26 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@BeatsPercent(100)
+@Algorithms(Algorithm.LEVEL_ORDER_TRAVERSAL)
+@TimeComplexity(Complexity.LINEAR_N)
+@SpaceComplexity(Complexity.CONSTANT)
 public class Problem102 {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
-        addLevel(root, 0, result);
-        return result;
+        List<List<Integer>> levels = new ArrayList<>();
+        collect(levels, root, 0);
+        return levels;
     }
 
-    private void addLevel(TreeNode node, int level, List<List<Integer>> result) {
-        if (node == null) {
+    private void collect(List<List<Integer>> levels, TreeNode root, int depth) {
+        if (root == null) {
             return;
         }
-        List<Integer> current = null;
-        if (result.size() <= level) {
-            current = new ArrayList<>();
-            result.add(current);
-        } else {
-            current = result.get(level);
+        if (levels.size() < depth + 1) {
+            levels.add(new ArrayList<>());
         }
-        current.add(node.val);
-        addLevel(node.left, level + 1, result);
-        addLevel(node.right, level + 1, result);
+        levels.get(depth).add(root.val);
+        collect(levels, root.left,  depth + 1);
+        collect(levels, root.right, depth + 1);
     }
 }

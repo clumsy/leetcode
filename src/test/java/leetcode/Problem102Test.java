@@ -9,10 +9,10 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class Problem102Test {
-    private Problem102 solution = new Problem102();
+    private final Problem102 solution = new Problem102();
 
     @Test
-    public void simple() {
+    public void example1() {
         assertThat(solution.levelOrder(treeOf(3, 9, 20, null, null, 15, 7)),
             is(asList(
                 singletonList(3),
