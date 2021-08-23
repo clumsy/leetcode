@@ -36,6 +36,9 @@ public class TreeNodes {
     }
 
     public static TreeNode treeOf(Integer... values) {
+        if (values.length == 0) {
+            return null;
+        }
         TreeNode root = new TreeNode(values[0]);
         Deque<TreeNode> queue = new LinkedList<>();
         queue.addLast(root);
