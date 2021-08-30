@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Algorithm {
     MATH,
+    INDEXING,
     IN_ORDER_TRAVERSAL,
     LEVEL_ORDER_TRAVERSAL,
     BREADTH_FIRST_SEARCH,
