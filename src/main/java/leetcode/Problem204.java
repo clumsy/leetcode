@@ -1,7 +1,7 @@
 package leetcode;
 
 @BeatsPercent(74.16)
-@Algorithms(Algorithm.SIEVE_OF_ERETOSTHENES)
+@Algorithms(Algorithm.SIEVE_OF_ERATOSTHENES)
 @TimeComplexity(Complexity.SQRT_N)
 @SpaceComplexity(Complexity.LINEAR_N)
 public class Problem204 {
