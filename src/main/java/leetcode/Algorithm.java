@@ -16,5 +16,6 @@ public enum Algorithm {
     QUICK_SELECT,
     DYNAMIC_PROGRAMMING,
     SLIDING_WINDOW,
-    TWO_POINTERS;
+    TWO_POINTERS,
+    FENWICK_TREE;
 }
