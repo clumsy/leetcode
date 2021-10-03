@@ -1,4 +1,5 @@
-import leetcode.Problem166;
+package leetcode;
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
