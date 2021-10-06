@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    SIMULATION,
     MERGE_INTERVAL,
     MATH,
     PREFIX_SUM,
