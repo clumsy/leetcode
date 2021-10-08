@@ -20,5 +20,6 @@ public enum Algorithm {
     DYNAMIC_PROGRAMMING,
     SLIDING_WINDOW,
     TWO_POINTERS,
-    FENWICK_TREE;
+    FENWICK_TREE,
+    MONOTONIC_QUEUE;
 }
