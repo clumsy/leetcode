@@ -23,5 +23,6 @@ public enum Algorithm {
     SLIDING_WINDOW,
     TWO_POINTERS,
     FENWICK_TREE,
-    MONOTONIC_QUEUE;
+    MONOTONIC_QUEUE,
+    MONOTONIC_STACK;
 }
