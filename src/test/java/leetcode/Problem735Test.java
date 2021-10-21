@@ -10,8 +10,8 @@ public class Problem735Test {
     
     @Test
     public void example1() {
-        int[] asteroids = {};
-        assertThat(solution.asteroidCollision(asteroids), is(new int[] {5,10,-5}));
+        int[] asteroids = {5,10,-5};
+        assertThat(solution.asteroidCollision(asteroids), is(new int[] {5,10}));
     }
     
     @Test
