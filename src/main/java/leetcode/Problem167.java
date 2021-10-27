@@ -1,6 +1,10 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.TWO_POINTERS)
 @BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem167 {
     public int[] twoSum(int[] numbers, int target) {
         int lo = 0;
