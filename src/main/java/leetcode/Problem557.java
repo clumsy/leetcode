@@ -1,29 +1,36 @@
 package leetcode;
 
-@BeatsPercent(65.92)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.LINEAR_N)
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(99.81)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem557 {
     public String reverseWords(String s) {
-        StringBuilder result = new StringBuilder();
-        int start = 0;
-        int end = 0;
-        while (end < s.length()) {
-            if (s.charAt(end) != ' ') {
-                end++;
-            } else {
-                int current = end - 1;
-                while (current >= start) {
-                    result.append(s.charAt(current--));
-                }
-                result.append(' ');
-                start = ++end;
+        char[] ss = s.toCharArray();
+        int n = ss.length;
+        int lo = 0;
+        while (lo < n) {
+            while (ss[lo] == ' ') {
+                lo++;
             }
+            if (lo == n) {
+                break;
+            }
+            int end = lo;
+            while (end < n && ss[end] != ' ') {
+                end++;
+            }
+            int hi = end - 1;
+            while (lo < hi) {
+                char tmp = ss[lo];
+                ss[lo] = ss[hi];
+                ss[hi] = tmp;
+                lo++;
+                hi--;
+            }
+            lo = end;
         }
-        int current = end - 1;
-        while (current >= start) {
-            result.append(s.charAt(current--));
-        }
-        return result.toString();
+        return new String(ss);
     }
 }
