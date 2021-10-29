@@ -2,6 +2,9 @@ package leetcode;
 
 public class ListNodes {
     public static ListNode list(Integer... nodes) {
+        if (nodes.length == 0) {
+            return null;
+        }
         ListNode root = new ListNode(nodes[0]);
         ListNode current = root;
         for (int i = 1; i < nodes.length; i++) {
