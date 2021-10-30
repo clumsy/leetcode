@@ -1,24 +1,20 @@
 package leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
-
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(99.85)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem3 {
-    public static int lengthOfLongestSubstring(String s) {
-        int length = s.length();
-        Map<Character, Integer> map = new HashMap<>(length, 1f);
+    public int lengthOfLongestSubstring(String s) {
         int max = 0;
-        int count = 0;
-        for (int i = 0; i < length; ++i) {
-            char ch = s.charAt(i);
-            Integer prev = map.put(ch, i);
-            if (prev == null || prev < i - count) {
-                ++count;
-            } else {
-                max = Math.max(max, count);
-                count = i - prev;
-            }
+        int[] prev = new int[256];
+        char[] ss = s.toCharArray();
+        for (int i = 0, last = 0; i < ss.length; i++) {
+            last = Math.max(last, prev[ss[i]]);
+            max = Math.max(max, i + 1 - last);
+            prev[ss[i]] = i + 1;
         }
-        return Math.max(max, count);
+        return max;
     }
 }
