@@ -1,38 +1,28 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(48.05)
+@TimeComplexity(worst = Complexity.N_BY_M)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem695 {
     public int maxAreaOfIsland(int[][] grid) {
         int max = 0;
-        for (int i = 0, rows = grid.length; i < rows; i++) {
-            for (int j = 0, cols = grid[0].length; j < cols; j++) {
-                int candidate = maxAreaStarting(grid, i, j);
-                max = Math.max(max, candidate);
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == 1) {
+                    max = Math.max(max, dfs(grid, i, j));
+                }
             }
         }
         return max;
     }
 
-    private int maxAreaStarting(int[][] grid, int row, int col) {
-        if (grid[row][col] == 0) {
+    private int dfs(int[][] a, int r, int c) {
+        if (r < 0 || r >= a.length || c < 0 || c >= a[0].length || a[r][c] == 0) {
             return 0;
         }
-        grid[row][col] = 0;
-        int left = 0;
-        if (col > 0) {
-            left = maxAreaStarting(grid, row, col - 1);
-        }
-        int up = 0;
-        if (row > 0) {
-            up = maxAreaStarting(grid, row - 1, col);
-        }
-        int right = 0;
-        if (col < grid[0].length - 1) {
-            right = maxAreaStarting(grid, row, col + 1);
-        }
-        int down = 0;
-        if (row < grid.length - 1) {
-            down = maxAreaStarting(grid, row + 1, col);
-        }
-        return 1 + left + right + up + down;
+        a[r][c] = 0;
+        return 1 + dfs(a, r - 1, c) + dfs(a, r + 1, c) + dfs(a, r, c - 1) + dfs(a, r, c + 1);
     }
 }
