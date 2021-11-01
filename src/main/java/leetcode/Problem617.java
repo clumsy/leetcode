@@ -1,21 +1,24 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem617 {
-    public static TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-        boolean noLeft = t1 == null;
-        boolean noRight = t2 == null;
-        if (noLeft && noRight) {
+    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) {
             return null;
         }
-        if (noLeft) {
-            return t2;
+        if (root1 != null && root2 != null) {
+            root1.val += root2.val;
+            root1.left = mergeTrees(root1.left, root2.left);
+            root1.right = mergeTrees(root1.right, root2.right);
+            return root1;
         }
-        if (noRight) {
-            return t1;
+        if (root1 == null) {
+            root1 = root2;
         }
-        TreeNode result = new TreeNode(t1.val + t2.val);
-        result.left = mergeTrees(t1.left, t2.left);
-        result.right = mergeTrees(t1.right, t2.right);
-        return result;
+        return root1;
     }
 }
