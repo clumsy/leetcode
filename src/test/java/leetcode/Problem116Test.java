@@ -2,8 +2,7 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Objects;
 
 public class Problem116Test {
     private final Problem116 solution = new Problem116();
@@ -30,6 +29,11 @@ public class Problem116Test {
         expected.right.left.next = expected.right.right;
         expected.left.right.next = expected.right.left;
  
-        assertThat(solution.connect(root), is(expected));
+        assert Objects.equals(solution.connect(root), expected);
+    }
+    
+    @Test
+    public void example2() {
+        assert Objects.equals(solution.connect(null), null);
     }
 }

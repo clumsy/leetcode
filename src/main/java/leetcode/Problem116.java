@@ -2,9 +2,11 @@ package leetcode;
 
 import java.util.Objects;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
 @BeatsPercent(100)
 @TimeComplexity(worst = Complexity.LINEAR_N)
-@SpaceComplexity(worst = Complexity.CONSTANT)
+@SpaceComplexity(worst = Complexity.LOGARITHMIC_N)
 public class Problem116 {
     class Node {
         public int val;
@@ -51,19 +53,19 @@ public class Problem116 {
             return "[" + val + "]";
         }
     }
-    
+
     public Node connect(Node root) {
         if (root == null) {
             return null;
         }
         if (root.left != null) {
             root.left.next = root.right;
+            connect(root.left);
             if (root.next != null) {
                 root.right.next = root.next.left;
             }
+            connect(root.right);
         }
-        connect(root.left);
-        connect(root.right);
         return root;
     }
 }
