@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Algorithm {
     BIT_MASK,
+    UNION_FIND,
     SIMULATION,
     MERGE_INTERVAL,
     MATH,
