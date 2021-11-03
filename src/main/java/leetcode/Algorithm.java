@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    RECURSION,
     BIT_MASK,
     UNION_FIND,
     SIMULATION,

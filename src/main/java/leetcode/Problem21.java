@@ -1,26 +1,24 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.RECURSION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.N_PLUS_M)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode root = new ListNode(0);
-        ListNode current = root;
-        while (l1 != null) {
-            ListNode next;
-            if (l2 == null || l1.val <= l2.val) {
-                next = new ListNode(l1.val);
-                l1 = l1.next;
-            } else {
-                next = new ListNode(l2.val);
-                l2 = l2.next;
-            }
-            current.next = next;
-            current = current.next;
+        if (l1 == null) {
+            return l2;
         }
-        while (l2 != null) {
-            current.next = new ListNode(l2.val);
-            current = current.next;
-            l2 = l2.next;
+        if (l2 == null) {
+            return l1;
         }
-        return root.next;
+        if (l1.val <= l2.val) {
+            l1.next = mergeTwoLists(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists(l1, l2.next);
+            return l2;
+        }
     }
 }
