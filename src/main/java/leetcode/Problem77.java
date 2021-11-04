@@ -3,22 +3,26 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.RECURSION)
+@BeatsPercent(92.23)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem77 {
     public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> results = new ArrayList<>();
-        fill(results, new ArrayList<>(), n, k, 1);
-        return results;
-    }
-
-    private void fill(List<List<Integer>> results, List<Integer> result, int n, int k, int from) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (k > n || k < 0) {
+            return result;
+        }
         if (k == 0) {
-            results.add(new ArrayList<>(result));
-            return;
+            result.add(new ArrayList<>());
+            return result;
         }
-        for (int i = from; i <= n; i++) {
-            result.add(i);
-            fill(results, result, n, k - 1, i + 1);
-            result.remove(result.size() - 1);
+        result = combine(n - 1, k - 1);
+        for (List<Integer> prev : result) {
+            prev.add(n); // with n
         }
+        result.addAll(combine(n - 1, k)); // without n
+        return result;
     }
 }
