@@ -3,31 +3,28 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BACKTRACKING)
 @BeatsPercent(100)
-@TimeComplexity(worst = Complexity.QUADRATIC_N)
+@TimeComplexity(worst = Complexity.LINEAR_N)
 @SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem784 {
     public List<String> letterCasePermutation(String s) {
-        List<String> ans = new ArrayList<>();
-        collect(s.toCharArray(), 0, new StringBuilder(), ans);
-        return ans;
+        List<String> result = new ArrayList<>();
+        collect(result, 0, s.toCharArray());
+        return result;
     }
 
-    private void collect(char[] s, int start, StringBuilder sb, List<String> ans) {
-        if (sb.length() == s.length) {
-            ans.add(sb.toString());
+    private void collect(List<String> result, int i, char[] s) {
+        if (i == s.length) {
+            result.add(new String(s));
             return;
         }
-        char c = s[start];
-        sb.append(c);
-        collect(s, start + 1, sb, ans);
-        sb.setLength(sb.length() - 1);
-
-        if (c >= '0' && c <= '9') {
-            return;
+        if (Character.isLetter(s[i])) {
+            s[i] = Character.toLowerCase(s[i]);
+            collect(result, i + 1, s);
+            s[i] = Character.toUpperCase(s[i]);
         }
-        sb.append(Character.isUpperCase(c) ? Character.toLowerCase(c) : Character.toUpperCase(c));
-        collect(s, start + 1, sb, ans);
-        sb.setLength(sb.length() - 1);
+        collect(result, i + 1, s);
     }
 }
