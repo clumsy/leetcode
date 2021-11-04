@@ -2,27 +2,37 @@ package leetcode;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
+import java.util.Arrays;
+
 import static leetcode.Asserts.assertEquivalent;
 
 public class Problem46Test {
-    protected Problem46 solution = new Problem46();
+    private final Problem46 solution = new Problem46();
 
-    public static final class AlternativeTest extends Problem46Test {
-        {
-            this.solution = new Problem46.Alternative();
-        }
+    @Test
+    public void example1() {
+        assertEquivalent(solution.permute(new int[] {1,2,3}),
+            Arrays.asList(
+                Arrays.asList(1,2,3),
+                Arrays.asList(1,3,2),
+                Arrays.asList(2,1,3),
+                Arrays.asList(2,3,1),
+                Arrays.asList(3,1,2),
+                Arrays.asList(3,2,1)));
     }
 
     @Test
-    public void simple() {
-        assertEquivalent(solution.permute(new int[] {1, 2, 3}),
-            asList(
-                asList(1, 2, 3),
-                asList(1, 3, 2),
-                asList(2, 1, 3),
-                asList(2, 3, 1),
-                asList(3, 1, 2),
-                asList(3, 2, 1)));
+    public void example2() {
+        assertEquivalent(solution.permute(new int[] {0,1}),
+            Arrays.asList(
+                Arrays.asList(0,1),
+                Arrays.asList(1,0)));
+    }
+
+    @Test
+    public void example3() {
+        assertEquivalent(solution.permute(new int[] {1}),
+            Arrays.asList(
+                Arrays.asList(1)));
     }
 }

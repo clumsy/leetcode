@@ -6,15 +6,11 @@ import org.hamcrest.Matcher;
 
 import java.util.List;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Asserts {
-    public static void assertEquivalent(List<?> actual, List<?> expected) {
-        String message = actual.toString() + " != " + expected.toString();
-        assertThat(message, actual.containsAll(expected), is(true));
-        assertThat(message, expected.containsAll(actual), is(true));
-        assertThat(message, actual.size(), is(expected.size()));
+    public static void assertEquivalent(final List<?> actual, final List<?> expected) {
+        assert actual.containsAll(expected);
+        assert expected.containsAll(actual);
+        assert actual.size() == expected.size();
     }
     
     public static Matcher<Double> within(double value, double epsilon) {

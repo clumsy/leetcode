@@ -1,81 +1,30 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.RECURSION)
+@BeatsPercent(95.52)
+@TimeComplexity(Complexity.LINEAR_N)
+@SpaceComplexity(Complexity.LINEAR_N)
 public class Problem46 {
-    public static class Alternative extends Problem46 {
-
-        @Override
-        public List<List<Integer>> permute(int[] nums) {
-            int length = nums.length;
-            if (length == 0) {
-                return Collections.emptyList();
-            }
-            List<List<Integer>> result = new ArrayList<>(1 << length);
-            int[] indices = new int[length];
-            for (int i = 0; i < length; i++) {
-                indices[i] = i;
-            }
-            collectPermutations(result, nums, new int[length], indices, length);
-            return result;
-        }
-
-        private void collectPermutations(List<List<Integer>> result, int[] input,
-                                         int[] current, int[] indices, int remaining) {
-            int length = current.length;
-            if (remaining <= 0) {
-                List<Integer> resultItem = new ArrayList<>(length);
-                for (int i : current) {
-                    resultItem.add(input[i]);
-                }
-                result.add(resultItem);
-                return;
-            }
-            for (int i = 0; i < length; i++) {
-                int index = indices[i];
-                if (index < 0) {
-                    continue;
-                }
-                current[length - remaining] = index;
-                indices[i] = -1;
-                collectPermutations(result, input, current, indices, remaining - 1);
-                indices[i] = i;
-            }
-        }
-    }
-
     public List<List<Integer>> permute(int[] nums) {
-        int length = nums.length;
-        if (length == 0) {
-            return Collections.emptyList();
-        }
-        List<List<Integer>> result = new ArrayList<>(1 << length);
-        int[] indices = new int[length];
-        for (int i = 0; i < length; i++) {
-            indices[i] = i;
-        }
-        collectPermutations(result, nums, indices, length);
-        return result;
-    }
-
-    private void collectPermutations(List<List<Integer>> result, int[] input, int[] indices, int remaining) {
-        int length = input.length;
-        if (remaining <= 0) {
-            List<Integer> resultItem = new ArrayList<>(length);
-            for (int i : indices) {
-                resultItem.add(input[i]);
+        List<List<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
+        for (int num : nums) {
+            List<List<Integer>> next = new ArrayList<>();
+            for (List<Integer> permutation : result) {
+                for (int i = 0, n = permutation.size(); i <= n; i++) {
+                    List<Integer> perm = new ArrayList<>(n + 1);
+                    perm.addAll(permutation.subList(0, i));
+                    perm.add(num);
+                    perm.addAll(permutation.subList(i, n));
+                    next.add(perm);
+                }
             }
-            result.add(resultItem);
-            return;
+            result = next;
         }
-        for (int i = 0; i < remaining; i++) {
-            int index = indices[i];
-            int offset = remaining - 1;
-            indices[i] = indices[offset];
-            indices[offset] = index;
-            collectPermutations(result, input, indices, remaining - 1);
-            indices[offset] = indices[i];
-            indices[i] = index;
-        }
+        return result;
     }
 }
