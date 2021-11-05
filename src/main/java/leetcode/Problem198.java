@@ -1,5 +1,6 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
 @BeatsPercent(100)
 @Algorithms(Algorithm.DYNAMIC_PROGRAMMING)
 @TimeComplexity(worst = Complexity.LINEAR_N)
