@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    HEAP,
     RECURSION,
     BACKTRACKING,
     BIT_MASK,
