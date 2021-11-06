@@ -4,7 +4,7 @@ public enum Algorithm {
     HEAP,
     RECURSION,
     BACKTRACKING,
-    BIT_MASK,
+    BIT_MANIPULATION,
     UNION_FIND,
     SIMULATION,
     MERGE_INTERVAL,

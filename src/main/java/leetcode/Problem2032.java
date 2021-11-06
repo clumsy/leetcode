@@ -5,7 +5,7 @@ import java.util.List;
 
 @Difficulty(Level.EASY)
 @BeatsPercent(83.64)
-@Algorithms(Algorithm.BIT_MASK)
+@Algorithms(Algorithm.BIT_MANIPULATION)
 @TimeComplexity(worst = Complexity.LINEAR_N)
 @SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem2032 {
