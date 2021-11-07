@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    KADANE,
     SET,
     HEAP,
     RECURSION,
