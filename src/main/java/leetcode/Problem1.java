@@ -3,6 +3,11 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.MAP)
+@BeatsPercent(99.68)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numberWithIndex = new HashMap<>();

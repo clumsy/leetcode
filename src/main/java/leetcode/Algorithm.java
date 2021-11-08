@@ -3,6 +3,7 @@ package leetcode;
 public enum Algorithm {
     KADANE,
     SET,
+    MAP,
     HEAP,
     RECURSION,
     BACKTRACKING,
