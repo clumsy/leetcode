@@ -1,22 +1,18 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.N_PLUS_M)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem88 {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int last = m + n - 1;
-        m--;
-        n--;
-        while (m >= 0 && n >= 0) {
-            int left = nums1[m];
-            int right = nums2[n];
-            if (left > right) {
-                nums1[last--] = nums1[m--];
+        for (int i = m - 1, j = n - 1, k = m + n - 1; k >= 0; k--) {
+            if (j < 0 || (i >= 0 && nums1[i] >= nums2[j])) {
+                nums1[k] = nums1[i--];
             } else {
-                nums1[last--] = nums2[n--];
+                nums1[k] = nums2[j--];
             }
-        }
-        while (n >= 0) {
-            nums1[n] = nums2[n];
-            n--;
         }
     }
 }
