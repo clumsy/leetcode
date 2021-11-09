@@ -1,42 +1,43 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BINARY_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LOGARITHMIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem34 {
     public int[] searchRange(int[] nums, int target) {
-        switch (nums.length) {
-            case 1:
-                if (nums[0] == target) {
-                    return new int[] {0, 0};
-                }
-            case 0:
-                return new int[] {-1, -1};
-        }
-        int length = nums.length - 1;
-        int left = bisect(nums, 0, length, target, true);
-        if (nums[left] != target) {
+        if (nums.length == 0) {
             return new int[] {-1, -1};
         }
-        int right = bisect(nums, left, length, target, false);
-        return new int[] {left, right};
+        return new int[] {lower_bound(nums, target), upper_bound(nums, target)};
     }
 
-    private int bisect(int[] nums, int lo, int hi, int target, boolean min) {
-        if (hi - lo < 2) {
-            if (min) {
-                return nums[lo] != target ? hi : lo;
+    private int lower_bound(int[] nums, int target) {
+        int lo = 0;
+        int hi = nums.length - 1;
+        while (lo < hi) {
+            int mid = lo + (hi - lo)/2;
+            if (nums[mid] < target) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
             }
-            return nums[hi] != target ? lo : hi;
         }
-        int mid = (lo + hi + 1)/2;
-        int middle = nums[mid];
-        if (min) {
-            if (target > middle) {
-                return bisect(nums, mid, hi, target, min);
+        return nums[lo] == target ? lo : -1;
+    }
+
+    private int upper_bound(int[] nums, int target) {
+        int lo = 0;
+        int hi = nums.length - 1;
+        while (lo < hi) {
+            int mid = hi - (hi - lo)/2;
+            if (nums[mid] > target) {
+                hi = mid - 1;
+            } else {
+                lo = mid;
             }
-            return bisect(nums, lo, mid, target, min);
         }
-        if (target < middle) {
-            return bisect(nums, lo, mid, target, min);
-        }
-        return bisect(nums, mid, hi, target, min);
+        return nums[lo] == target ? lo : -1;
     }
 }
