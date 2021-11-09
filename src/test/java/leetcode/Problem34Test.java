@@ -15,7 +15,7 @@ public class Problem34Test {
 
     @Test
     public void example2() {
-        int[] nums = new int[0];
+        int[] nums = {};
         assert Arrays.equals(solution.searchRange(nums, 0), new int[] {-1,-1});
     }
 
