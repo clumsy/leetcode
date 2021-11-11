@@ -7,21 +7,20 @@ package leetcode;
 @SpaceComplexity(Complexity.CONSTANT)
 public class Problem74 {
     public boolean searchMatrix(int[][] matrix, int target) {
+        int n = matrix.length;
+        int m = matrix[0].length;
         int lo = 0;
-        int cols = matrix[0].length;
-        int hi = matrix.length*cols - 1;
+        int hi = n*m - 1;
         while (lo <= hi) {
-            int mid = (lo + hi)/2;
-            int row = mid / cols;
-            int col = mid % cols;
-            int diff = target - matrix[row][col];
-            if (diff == 0) {
+            int mid = lo + (hi - lo)/2;
+            int val = matrix[mid / m][mid % m];
+            if (val == target) {
                 return true;
             }
-            if (diff > 0) {
-                lo = mid + 1;
-            } else {
+            if (val > target) {
                 hi = mid - 1;
+            } else {
+                lo = mid + 1;
             }
         }
         return false;
