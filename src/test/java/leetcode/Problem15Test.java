@@ -2,21 +2,21 @@ package leetcode;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Problem15Test {
     private final Problem15 solution = new Problem15();
 
     @Test
     public void example1() {
-        assertThat(solution.threeSum(new int[] {-1, 0, 1, 2, -1, -4}), is(asList(asList(-1, -1, 2), asList(-1, 0, 1))));
+        int[] nums = {-1,0,1,2,-1,-4};
+        assert Objects.equals(solution.threeSum(nums), Arrays.asList(Arrays.asList(-1,-1,2), Arrays.asList(-1,0,1)));
     }
 
     @Test
     public void example2() {
-        assertThat(solution.threeSum(new int[] {0, 0, 0, 0}), is(singletonList(asList(0, 0, 0))));
+        int[] nums = {0,0,0,0};
+        assert Objects.equals(solution.threeSum(nums), Arrays.asList(Arrays.asList(0,0,0)));
     }
 }

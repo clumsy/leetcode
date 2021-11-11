@@ -4,35 +4,40 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(83.75)
+@TimeComplexity(worst = Complexity.QUADRATIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem15 {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
-        for (int i = 0; i < nums.length - 2; i++) {
+        for (int i = 0, n = nums.length; i < n - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
-            if (nums[i] > 0) { // because numbers are sorted, no solution when first number is positive
-                break;
+            if (nums[i] > 0) {
+                break; // no solutions after this
             }
-            int l = i + 1;
-            int r = nums.length - 1;
-            while (l < r) {
-                if (l > i + 1 && nums[l] == nums[l - 1]) {
-                    l++;
-                    continue;
-                }
-                if (r < nums.length - 1 && nums[r] == nums[r + 1]) {
-                    r--;
-                    continue;
-                }
-                int sum = nums[i] + nums[l] + nums[r];
+            int j = i + 1;
+            int k = n - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
                 if (sum == 0) {
-                    result.add(Arrays.asList(nums[i], nums[l++], nums[r]));
-                } else if (sum < 0) {
-                    l++;
+                    result.add(Arrays.asList(nums[i], nums[j], nums[k]));
+                    while (j < k && nums[j] == nums[j + 1]) {
+                        j++;
+                    }
+                    while (j < k && nums[k] == nums[k - 1]) {
+                        k--;
+                    }
+                    j++;
+                    k--;
+                } else if (sum > 0) {
+                    k--;
                 } else {
-                    r--;
+                    j++;
                 }
             }
         }
