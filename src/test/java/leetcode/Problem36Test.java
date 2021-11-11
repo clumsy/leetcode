@@ -2,15 +2,12 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem36Test {
-    private Problem36 solution = new Problem36();
+    private final Problem36 solution = new Problem36();
 
     @Test
-    public void verifyValid() {
-        assertThat(solution.isValidSudoku(new char[][] {
+    public void example1() {
+        assert solution.isValidSudoku(new char[][] {
             {'5','3','.','.','7','.','.','.','.'},
             {'6','.','.','1','9','5','.','.','.'},
             {'.','9','8','.','.','.','.','6','.'},
@@ -20,12 +17,12 @@ public class Problem36Test {
             {'.','6','.','.','.','.','2','8','.'},
             {'.','.','.','4','1','9','.','.','5'},
             {'.','.','.','.','8','.','.','7','9'}
-        }), is(true));
+        });
     }
 
     @Test
-    public void detectsInvalid() {
-        assertThat(solution.isValidSudoku(new char[][] {
+    public void example2() {
+        assert !solution.isValidSudoku(new char[][] {
             {'8','3','.','.','7','.','.','.','.'},
             {'6','.','.','1','9','5','.','.','.'},
             {'.','9','8','.','.','.','.','6','.'},
@@ -35,6 +32,6 @@ public class Problem36Test {
             {'.','6','.','.','.','.','2','8','.'},
             {'.','.','.','4','1','9','.','.','5'},
             {'.','.','.','.','8','.','.','7','9'}
-        }), is(false));
+        });
     }
 }

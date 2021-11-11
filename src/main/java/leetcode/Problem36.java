@@ -1,5 +1,10 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BIT_MANIPULATION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.CONSTANT) // always 9x9
+@SpaceComplexity(worst = Complexity.CONSTANT) // always 9x9
 public class Problem36 {
     public boolean isValidSudoku(char[][] board) {
         int[] cols = new int[9];
