@@ -1,21 +1,21 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(86.65)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem11 {
     public int maxArea(int[] height) {
-        int left = 0, right = height.length - 1;
         int max = 0;
-        while (left != right) {
-            int leftHeight = height[left];
-            int rightHeight = height[right];
-            int currentHeight = Math.min(leftHeight, rightHeight);
-            int current = currentHeight*(right - left);
-            if (current > max) {
-                max = current;
-            }
-            if (leftHeight < rightHeight) {
-                left++;
+        int lo = 0;
+        int hi = height.length - 1;
+        while (lo < hi) {
+            max = Math.max(max, (hi - lo)*Math.min(height[lo], height[hi]));
+            if (height[lo] < height[hi]) {
+                lo++;
             } else {
-                right--;
+                hi--;
             }
         }
         return max;
