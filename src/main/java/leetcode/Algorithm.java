@@ -3,6 +3,7 @@ package leetcode;
 public enum Algorithm {
     KADANE,
     SET,
+    FREQUENCY_COUNT,
     PRIORITY_QUEUE,
     MAP,
     HEAP,
