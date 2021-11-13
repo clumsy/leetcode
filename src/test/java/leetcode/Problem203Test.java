@@ -2,8 +2,7 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Objects;
 
 public class Problem203Test {
     private final Problem203 solution = new Problem203();
@@ -11,6 +10,18 @@ public class Problem203Test {
     @Test
     public void example1() {
         ListNode list = ListNodes.list(1,2,6,3,4,5,6);
-        assertThat(solution.removeElements(list, 6), is(ListNodes.list(1,2,3,4,5)));
+        assert Objects.equals(solution.removeElements(list, 6), ListNodes.list(1,2,3,4,5));
+    }
+
+    @Test
+    public void example2() {
+        ListNode list = ListNodes.list();
+        assert Objects.equals(solution.removeElements(list, 1), list);
+    }
+
+    @Test
+    public void example3() {
+        ListNode list = ListNodes.list(7,7,7,7);
+        assert Objects.equals(solution.removeElements(list, 7), ListNodes.list());
     }
 }
