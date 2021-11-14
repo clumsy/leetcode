@@ -1,30 +1,32 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(50.29)
+@TimeComplexity(worst = Complexity.N_BY_M)
+@SpaceComplexity(worst = Complexity.N_BY_M) // a grid with all '1's will put everything on stack
 public class Problem200 {
     public int numIslands(char[][] grid) {
-        int islandCount = 0;
-        for (int row = 0; row < grid.length; row++) {
-            for (int col = 0; col < grid[0].length; col++) {
-                if (grid[row][col] == '0') {
-                    continue;
+        int count = 0;
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[r].length; c++) {
+                if (grid[r][c] == '1') {
+                    dfs(grid, r, c);
+                    count++;
                 }
-                islandCount++;
-                markIsland(grid, row, col);
             }
         }
-        return islandCount;
+        return count;
     }
 
-    private void markIsland(char[][] grid, int row, int col) {
-        if (row < 0 || col < 0 ||
-                row >= grid.length || col >= grid[0].length ||
-                grid[row][col] == '0') {
+    private void dfs(char[][] grid, int r, int c) {
+        if (r < 0 || r >= grid.length || c < 0 || c >= grid[r].length || grid[r][c] == '0') {
             return;
         }
-        grid[row][col] = '0';
-        markIsland(grid, row - 1, col);
-        markIsland(grid, row + 1, col);
-        markIsland(grid, row, col + 1);
-        markIsland(grid, row, col - 1);
+        grid[r][c] = '0';
+        dfs(grid, r + 1, c);
+        dfs(grid, r, c + 1);
+        dfs(grid, r - 1, c);
+        dfs(grid, r, c - 1);
     }
 }

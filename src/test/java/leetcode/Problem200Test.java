@@ -2,20 +2,28 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem200Test {
     private final Problem200 solution = new Problem200();
 
     @Test
     public void example1() {
-        char[][] grid = new char[][] {
+        char[][] grid = {
             {'1','1','1','1','0'},
             {'1','1','0','1','0'},
             {'1','1','0','0','0'},
             {'0','0','0','0','0'}
         };
-        assertThat(solution.numIslands(grid), is(1));
+        assert solution.numIslands(grid) == 1;
+    }
+
+    @Test
+    public void example2() {
+        char[][] grid = {
+            {'1','1','0','0','0'},
+            {'1','1','0','0','0'},
+            {'0','0','1','0','0'},
+            {'0','0','0','1','1'}
+        };
+        assert solution.numIslands(grid) == 3;
     }
 }
