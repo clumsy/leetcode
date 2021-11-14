@@ -1,5 +1,7 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
 @BeatsPercent(100)
 @TimeComplexity(Complexity.QUADRATIC_N)
 @SpaceComplexity(Complexity.LINEAR_N) // stack frame depth

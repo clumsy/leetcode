@@ -2,9 +2,6 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem547Test {
     private final Problem547 solution = new Problem547();
     
@@ -15,7 +12,7 @@ public class Problem547Test {
             {1,1,0},
             {0,0,1},
         };
-        assertThat(solution.findCircleNum(isConnected), is(2));
+        assert solution.findCircleNum(isConnected) == 2;
     }
     
     @Test
@@ -25,6 +22,6 @@ public class Problem547Test {
             {0,1,0},
             {0,0,1},
         };
-        assertThat(solution.findCircleNum(isConnected), is(3));
+        assert solution.findCircleNum(isConnected) == 3;
     }
 }
