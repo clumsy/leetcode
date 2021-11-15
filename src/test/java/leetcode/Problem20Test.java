@@ -2,34 +2,36 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem20Test {
-    private Problem20 solution = new Problem20();
+    private final Problem20 solution = new Problem20();
 
     @Test
-    public void singleParenthesis() {
-        assertThat(solution.isValid("()"), is(true));
+    public void example1() {
+        assert solution.isValid("()");
     }
 
     @Test
-    public void threeTypes() {
-        assertThat(solution.isValid("()[]{}"), is(true));
+    public void example2() {
+        assert solution.isValid("()[]{}");
     }
 
     @Test
-    public void wrongClosing() {
-        assertThat(solution.isValid("(]"), is(false));
+    public void example3() {
+        assert !solution.isValid("(]");
     }
 
     @Test
-    public void wrongMixture() {
-        assertThat(solution.isValid("([)]"), is(false));
+    public void example4() {
+        assert !solution.isValid("([)]");
     }
 
     @Test
-    public void validMixture() {
-        assertThat(solution.isValid("{[]}"), is(true));
+    public void example5() {
+        assert solution.isValid("{[]}");
+    }
+
+    @Test
+    public void example6() {
+        assert !solution.isValid("]");
     }
 }

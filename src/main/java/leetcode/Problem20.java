@@ -1,34 +1,36 @@
 package leetcode;
 
-import java.util.Stack;
-
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.STACK)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem20 {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+        char[] stack = new char[s.length()];
+        int size = 0;
         for (char c : s.toCharArray()) {
             switch (c) {
-                case '(':
-                case '[':
-                case '{':
-                    stack.add(c);
+                default:
+                    stack[size++] = c;
+                    break;
+                case '}':
+                    if (size == 0 || stack[--size] != '{') {
+                        return false;
+                    }
                     break;
                 case ')':
-                    if (stack.isEmpty() || stack.pop() != '(') {
+                    if (size == 0 || stack[--size] != '(') {
                         return false;
                     }
                     break;
                 case ']':
-                    if (stack.isEmpty() || stack.pop() != '[') {
-                        return false;
-                    }
-                    break;
-                case '}':
-                    if (stack.isEmpty() || stack.pop() != '{') {
+                    if (size == 0 || stack[--size] != '[') {
                         return false;
                     }
                     break;
             }
         }
-        return stack.isEmpty();
+        return size == 0;
     }
 }
