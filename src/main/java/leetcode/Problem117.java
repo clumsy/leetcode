@@ -2,9 +2,11 @@ package leetcode;
 
 import java.util.Objects;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
 @BeatsPercent(100)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem117 {
     class Node {
         public int val;
@@ -53,33 +55,33 @@ public class Problem117 {
     }
     
     public Node connect(Node root) {
-        Node current = root; // already linked
-        while (current != null) {
-            Node next = current;
-            Node next_head = null;
+        Node start = root; // already linked
+        while (start != null) {
+            Node current = start;
+            Node next_start = null;
             Node prev = null;
-            while (next != null) { // traverse the linked level and link the nodes below
-                if (next.left != null) {
-                    if (next_head == null) {
-                        next_head = next.left;
-                        prev = next_head;
+            while (current != null) { // traverse the linked level and link the nodes below
+                if (current.left != null) {
+                    if (next_start == null) {
+                        next_start = current.left;
+                        prev = next_start;
                     } else {
-                        prev.next = next.left;
+                        prev.next = current.left;
                         prev = prev.next;
                     }
                 }
-                if (next.right != null) {
-                    if (next_head == null) {
-                        next_head = next.right;
-                        prev = next_head;
+                if (current.right != null) {
+                    if (next_start == null) {
+                        next_start = current.right;
+                        prev = next_start;
                     } else {
-                        prev.next = next.right;
+                        prev.next = current.right;
                         prev = prev.next;
                     }
                 }
-                next = next.next;
+                current = current.next;
             }
-            current = next_head;
+            start = next_start;
         }
         return root;
     }

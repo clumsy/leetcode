@@ -2,14 +2,14 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Objects;
 
 public class Problem117Test {
     private final Problem117 solution = new Problem117();
 
     @Test
     public void example1() {
+        // [1,2,3,4,5,null,7]
         Problem117.Node root = solution.new Node(1);
         root.left = solution.new Node(2);
         root.right = solution.new Node(3);
@@ -27,11 +27,18 @@ public class Problem117Test {
         expected.right.right = solution.new Node(7);
         expected.left.right.next = expected.right.right;
  
-        assertThat(solution.connect(root), is(expected));
+        assert Objects.equals(solution.connect(root), expected);
     }
 
     @Test
     public void example2() {
+        // []
+        assert Objects.equals(solution.connect(null), null);
+    }
+
+    @Test
+    public void example3() {
+        // [1,2,3,4,5,null,7]
         Problem117.Node root = solution.new Node(1);
         root.left = solution.new Node(2);
         root.right = solution.new Node(3);
@@ -46,11 +53,11 @@ public class Problem117Test {
         expected.right.right = solution.new Node(5);
         expected.left.left.next = expected.right.right;
  
-        assertThat(solution.connect(root), is(expected));
+        assert Objects.equals(solution.connect(root), expected);
     }
 
     @Test
-    public void example3() {
+    public void example4() {
         Problem117.Node root = solution.new Node(2);
         root.left = solution.new Node(1);
         root.right = solution.new Node(3);
@@ -90,7 +97,28 @@ public class Problem117Test {
         expected.right.left.right.next = expected.right.right.left;
         expected.left.right.right.left = solution.new Node(7);
  
-        assertThat(solution.connect(root), is(expected));
-        expected.toString();
+        assert Objects.equals(solution.connect(root), expected);
+    }
+
+    @Test
+    public void example5() {
+        // [0,0,0,0,null,null,0,null,null,null,0]
+        Problem117.Node root = solution.new Node(0);
+        root.left = solution.new Node(0);
+        root.right = solution.new Node(0);
+        root.left.left = solution.new Node(0);
+        root.right.right = solution.new Node(0);
+        root.right.right.right = solution.new Node(0);
+
+        Problem117.Node expected = solution.new Node(0);
+        expected.left = solution.new Node(0);
+        expected.right = solution.new Node(0);
+        expected.left.next = expected.right;
+        expected.left.left = solution.new Node(0);
+        expected.right.right = solution.new Node(0);
+        expected.left.left.next = expected.right.right; 
+        expected.right.right.right = solution.new Node(0);
+ 
+        assert Objects.equals(solution.connect(root), expected);
     }
 }
