@@ -3,24 +3,28 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.EXPONENTIAL_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem797 {
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
-        List<List<Integer>> allPaths = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
         path.add(0);
-        findAllPathsFrom(0, graph, allPaths, path);
-        return allPaths;
+        return dfs(new ArrayList<>(), graph, 0, path);
     }
 
-    private void findAllPathsFrom(int current, int[][] graph, List<List<Integer>> allPaths, List<Integer> path) {
+    private List<List<Integer>> dfs(List<List<Integer>> result, int[][] graph, int current, List<Integer> path) {
         if (current == graph.length - 1) {
-            allPaths.add(new ArrayList<>(path));
-            return;
+            result.add(new ArrayList<>(path));
+            return result;
         }
         for (int next : graph[current]) {
             path.add(next);
-            findAllPathsFrom(next, graph, allPaths, path);
+            dfs(result, graph, next, path);
             path.remove(path.size() - 1);
         }
+        return result;
     }
 }
