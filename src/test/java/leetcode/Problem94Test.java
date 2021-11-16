@@ -17,7 +17,7 @@ public class Problem94Test {
 
     @Test
     public void example2() {
-        TreeNode root = TreeNodes.treeOf(2, 3, null, 1);
+        TreeNode root = TreeNodes.treeOf(2,3,null,1);
         assert Objects.equals(solution.inorderTraversal(root),
             Arrays.asList(1,3,2));
     }
