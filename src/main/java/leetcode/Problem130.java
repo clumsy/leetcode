@@ -1,46 +1,41 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BREADTH_FIRST_SEARCH)
+@BeatsPercent(99.62)
+@TimeComplexity(worst = Complexity.N_BY_M)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 class Problem130 {
     public void solve(char[][] board) {
-        int rows = board.length;
-        if (rows == 0) {
-            return;
+        int n = board.length;
+        int m = board[0].length;
+        for (int r = 0; r < n; r++) {
+            dfs(board, r, 0);
+            dfs(board, r, m - 1);
         }
-        int cols = board[0].length;
-        if (cols == 0) {
-            return;
+        for (int c = 0; c < m; c++) {
+            dfs(board, 0, c);
+            dfs(board, n - 1, c);
         }
-
-        for (int row = 0; row < rows; row++) {
-            dfs(board, row, 0);
-            dfs(board, row, cols - 1);
-        }
-
-        for (int col = 0; col < cols; col++) {
-            dfs(board, 0, col);
-            dfs(board, rows - 1, col);
-        }
-
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < cols; col++) {
-                if (board[row][col] != '*') {
-                    board[row][col] = 'X';
-                } else {
-                    board[row][col] = 'O';
+        for (int r = 0; r < n; r++) {
+            for (int c = 0; c < m; c++) {
+                switch (board[r][c]) {
+                    case '*': board[r][c] = 'O'; break;
+                    case 'O': board[r][c] = 'X'; break;
                 }
             }
         }
     }
 
-    private void dfs(char[][] board, int row, int col) {
-        if (row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col] != 'O') {
+    private void dfs(char[][] board, int r, int c) {
+        if (r < 0 || c < 0 || r >= board.length || c >= board[0].length || board[r][c] != 'O') {
             return;
         }
-        board[row][col] = '*';
-        dfs(board, row - 1, col);
-        dfs(board, row + 1, col);
-        dfs(board, row, col - 1);
-        dfs(board, row, col + 1);
+        board[r][c] = '*';
+        dfs(board, r + 1, c);
+        dfs(board, r, c + 1);
+        dfs(board, r - 1, c);
+        dfs(board, r, c - 1);
     }
 }
 
