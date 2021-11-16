@@ -14,12 +14,11 @@ public class Problem145 {
     }
 
     private List<Integer> dfs(List<Integer> result, TreeNode root) {
-        if (root == null) {
-            return result;
+        if (root != null) {
+            dfs(result, root.left);
+            dfs(result, root.right);
+            result.add(root.val);
         }
-        dfs(result, root.left);
-        dfs(result, root.right);
-        result.add(root.val);
         return result;
     }
 }
