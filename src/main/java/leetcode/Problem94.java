@@ -2,34 +2,22 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem94 {
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-        while (root != null) {
-            if (root.left != null) {
-                stack.push(root);
-                root = root.left;
-                continue;
-            }
+        return dfs(new ArrayList<>(), root);
+    }
+
+    private List<Integer> dfs(List<Integer> result, TreeNode root) {
+        if (root != null) {
+            dfs(result, root.left);
             result.add(root.val);
-            if (root.right != null) {
-                root = root.right;
-            } else {
-                while (true) {
-                    if (stack.isEmpty()) {
-                        return result;
-                    }
-                    root = stack.pop();
-                    result.add(root.val);
-                    if (root.right != null) {
-                        root = root.right;
-                        break;
-                    }
-                }
-            }
+            dfs(result, root.right);
         }
         return result;
     }
