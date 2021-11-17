@@ -1,16 +1,15 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N) // depth of the stack
 public class Problem104 {
     public int maxDepth(TreeNode root) {
-        return findMaxDepth(root, 0);
-    }
-
-    private int findMaxDepth(TreeNode node, int depth) {
-        if (node == null) {
-            return depth;
+        if (root == null) {
+            return 0;
         }
-        int leftDepth = findMaxDepth(node.left, depth + 1);
-        int rightDepth = findMaxDepth(node.right, depth + 1);
-        return Math.max(leftDepth, rightDepth);
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }
