@@ -3,23 +3,23 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BIT_MANIPULATION)
 @BeatsPercent(100)
+@TimeComplexity(worst = Complexity.EXPONENTIAL_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem78 {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        result.add(new ArrayList<>());
-        for (int i = 1; i < Math.pow(2,nums.length); i++) {
-            List<Integer> next = new ArrayList<>();
-            int k = 0;
-            int j = i;
-            while (j > 0) {
-                if (j % 2 == 1) {
-                    next.add(nums[k]);
+        int count = 1 << nums.length;
+        List<List<Integer>> result = new ArrayList<>(count);
+        for (int mask = 0; mask < count; mask++) {
+            List<Integer> current = new ArrayList<>(nums.length);
+            for (int bit = 0; (1 << bit) <= mask; bit++) {
+                if ((mask & (1 << bit)) > 0) {
+                    current.add(nums[bit]);
                 }
-                k++;
-                j /= 2;
             }
-            result.add(next);
+            result.add(current);
         }
         return result;
     }
