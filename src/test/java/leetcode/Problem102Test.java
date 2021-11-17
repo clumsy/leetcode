@@ -2,21 +2,34 @@ package leetcode;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
-import static leetcode.TreeNodes.treeOf;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Problem102Test {
     private final Problem102 solution = new Problem102();
 
     @Test
     public void example1() {
-        assertThat(solution.levelOrder(treeOf(3, 9, 20, null, null, 15, 7)),
-            is(asList(
-                singletonList(3),
-                asList(9, 20),
-                asList(15, 7))));
+        TreeNode root = TreeNodes.treeOf(3,9,20,null,null,15,7);
+        assert Objects.equals(solution.levelOrder(root),
+            Arrays.asList(
+                Arrays.asList(3),
+                Arrays.asList(9,20),
+                Arrays.asList(15,7)));
+    }
+
+    @Test
+    public void example2() {
+        TreeNode root = TreeNodes.treeOf(1);
+        assert Objects.equals(solution.levelOrder(root),
+            Arrays.asList(
+                Arrays.asList(1)));
+    }
+
+    @Test
+    public void example3() {
+        TreeNode root = TreeNodes.treeOf();
+        assert Objects.equals(solution.levelOrder(root),
+            Arrays.asList());
     }
 }
