@@ -2,20 +2,18 @@ package leetcode;
 
 import org.junit.Test;
 
-import static leetcode.TreeNodes.treeOf;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem101Test {
-    private Problem101 solution = new Problem101();
+    private final Problem101 solution = new Problem101();
 
     @Test
-    public void detectsSymmetric() {
-        assertThat(solution.isSymmetric(treeOf(1, 2, 2, 3, 4, 4, 3)), is(true));
+    public void example1() {
+        TreeNode root = TreeNodes.treeOf(1,2,2,3,4,4,3);
+        assert solution.isSymmetric(root);
     }
 
     @Test
-    public void detectsNotSymmetric() {
-        assertThat(solution.isSymmetric(treeOf(1, 2, 2, null, 3, null, 3)), is(false));
+    public void example2() {
+        TreeNode root = TreeNodes.treeOf(1,2,2,null,3,null,3);
+        assert !solution.isSymmetric(root);
     }
 }

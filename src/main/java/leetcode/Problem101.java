@@ -1,26 +1,22 @@
 package leetcode;
 
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N) // depth of the stack
 public class Problem101 {
     public boolean isSymmetric(TreeNode root) {
-        if (root == null) {
-            return true;
-        }
-        return doCheckIsSymmetric(root.left, root.right);
+        return root == null || dfs(root.left, root.right);
     }
 
-    private boolean doCheckIsSymmetric(TreeNode first, TreeNode second) {
-        if (first == second && first == null) {
+    private boolean dfs(TreeNode left, TreeNode right) {
+        if (left == null && right == null) {
             return true;
         }
-        if (first == null) {
+        if (left == null || right == null || left.val != right.val) {
             return false;
         }
-        if (second == null) {
-            return false;
-        }
-        if (first.val != second.val) {
-            return false;
-        }
-        return doCheckIsSymmetric(first.left, second.right) && doCheckIsSymmetric(first.right, second.left);
+        return dfs(left.left, right.right) && dfs(left.right, right.left);
     }
 }
