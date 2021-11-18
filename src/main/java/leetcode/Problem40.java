@@ -2,83 +2,35 @@ package leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BACKTRACKING)
+@BeatsPercent(99.01)
+@TimeComplexity(worst = Complexity.TWO_TO_N) // where N is the number of candidates
+@SpaceComplexity(worst = Complexity.LINEAR_K) // where K is target
 public class Problem40 {
-    public static final class Alternative extends Problem40 {
-
-        @Override
-        public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-            Arrays.sort(candidates);
-            int length = candidates.length;
-            int[] counts = new int[length];
-            int k = 0;
-            for (int i = 0; i < length;) {
-                int count = 1;
-                int candidate = candidates[i];
-                while (++i < length && candidate == candidates[i]) {
-                    count++;
-                }
-                candidates[k] = candidate;
-                counts[k++] = count;
-            }
-            return getCandidates(candidates, counts, new int[k], 0, k, target);
-        }
-
-        private List<List<Integer>> getCandidates(int[] candidates, int[] counts, int[] currentCounts,
-                                                  int offset, int length, int target) {
-            List<List<Integer>> result = new ArrayList<>();
-            for (int i = offset; i < length; i++) {
-                int candidate = candidates[i];
-                int diff = target - candidate;
-                if (diff < 0) {
-                    break;
-                }
-                currentCounts[i]++;
-                if (diff == 0) {
-                    result.add(Collections.singletonList(candidate));
-                } else if (diff >= candidate) {
-                    for (List<Integer> numbers : getCandidates(candidates, counts, currentCounts.clone(),
-                            counts[i] > currentCounts[i] ? i : i + 1, length, diff)) {
-                        List<Integer> current = new ArrayList<>(numbers.size() + 1);
-                        current.add(candidate);
-                        current.addAll(numbers);
-                        result.add(current);
-                    }
-                }
-            }
-            return result;
-        }
-    }
-
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        checkCombinations(candidates, target, current, 0, result);
-        return result;
+        return combinationSum2(new ArrayList<>(), new ArrayList<>(), candidates, 0, target);
     }
 
-    private void checkCombinations(int[] candidates, int target, List<Integer> current,
-                                   int offset, List<List<Integer>> result) {
-        for (int i = offset; i < candidates.length; i++) {
-            int candidate = candidates[i];
-            if (i > offset && candidate == candidates[i - 1]) {
+    private List<List<Integer>> combinationSum2(List<List<Integer>> result, List<Integer> current, int[] candidates, int start, int target) {
+        if (target == 0) {
+            result.add(new ArrayList<>(current));
+            return result;
+        }
+        for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
+            if (candidates[i] == 0 || (i > 0 && candidates[i] == candidates[i - 1])) {
                 continue;
             }
-            int diff = target - candidate;
-            if (diff == 0) {
-                List<Integer> match = new ArrayList<>(current);
-                match.add(candidate);
-                result.add(match);
-                break;
-            }
-            if (diff > 0) {
-                current.add(candidate);
-                checkCombinations(candidates, diff, current, i + 1, result);
-                current.remove(current.size() - 1);
-            }
+            int candidate = candidates[i];
+            candidates[i] = 0;
+            current.add(candidate);
+            combinationSum2(result, current, candidates, i + 1, target - candidate);
+            current.remove(current.size() - 1);
+            candidates[i] = candidate;
         }
+        return result;
     }
 }

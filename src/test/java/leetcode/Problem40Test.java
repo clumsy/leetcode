@@ -2,45 +2,39 @@ package leetcode;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
-import static leetcode.Asserts.assertEquivalent;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Problem40Test {
-    protected Problem40 solution = new Problem40();
+    private final Problem40 solution = new Problem40();
 
-    public static final class AlternativeTest extends Problem40Test {
-        {
-            this.solution = new Problem40.Alternative();
-        }
+    @Test
+    public void example1() {
+        int[] candidates = {2,5,2,1,2};
+        assert Objects.equals(solution.combinationSum2(candidates, 5),
+            Arrays.asList(
+                Arrays.asList(1, 2, 2),
+                Arrays.asList(5)));
     }
 
     @Test
-    public void simple() {
-        assertEquivalent(solution.combinationSum2(new int[] {2, 5, 2, 1, 2}, 5),
-            asList(
-                singletonList(5),
-                asList(1, 2, 2)));
+    public void example2() {
+        int[] candidates = {3,1,3,5,1,1};
+        assert Objects.equals(solution.combinationSum2(candidates, 8),
+            Arrays.asList(
+                Arrays.asList(1,1,1,5),
+                Arrays.asList(1,1,3,3),
+                Arrays.asList(3,5)));
     }
 
     @Test
-    public void medium() {
-        assertEquivalent(solution.combinationSum2(new int[] {3, 1, 3, 5, 1, 1}, 8),
-            asList(
-                asList(1, 1, 1, 5),
-                asList(1, 1, 3, 3),
-                asList(3, 5)));
-    }
-
-    @Test
-    public void huge() {
-        assertEquivalent(solution.combinationSum2(new int[] {10, 1, 2, 7, 6, 1, 5}, 8),
-            asList(
-                asList(1, 7),
-                asList(1, 2, 5),
-                asList(2, 6),
-                asList(1, 1, 6)));
+    public void example3() {
+        int[] candidates = {10,1,2,7,6,1,5};
+        assert Objects.equals(solution.combinationSum2(candidates, 8),
+            Arrays.asList(
+                Arrays.asList(1,1,6),
+                Arrays.asList(1,2,5),
+                Arrays.asList(1,7),
+                Arrays.asList(2,6)));
     }
 }
