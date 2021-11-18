@@ -16,6 +16,7 @@ public enum Complexity {
     LOG_N_PLUS_LOG_M("O(log(N)+log(M))"),
     K_TO_N("O(kⁿ)"),
     N_PLUS_K("O(N+K)"),
+    N_TO_K("O(Nᵏ)"),
     N_PLUS_M("O(N+M)"),
     CUBIC_N("O(N³)"),
     EXPONENTIAL_N("O(2ⁿ)"),
