@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Problem39Test {
-    protected final Problem39 solution = new Problem39();
+    private final Problem39 solution = new Problem39();
 
     @Test
     public void example1() {

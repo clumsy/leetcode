@@ -16,10 +16,8 @@ public class Problem39 {
     }
 
     private List<List<Integer>> combinationSum(List<List<Integer>> result, List<Integer> current, int[] candidates, int target, int start) {
-        if (target <= 0) {
-            if (target == 0) {
-                result.add(new ArrayList<>(current));
-            }
+        if (target == 0) {
+            result.add(new ArrayList<>(current));
             return result;
         }
         for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
