@@ -1,40 +1,38 @@
 package leetcode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BACKTRACKING)
+@BeatsPercent(99.45)
+@TimeComplexity(worst = Complexity.FACTORIAL_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem47 {
+    private static final int TAKEN = Integer.MIN_VALUE;
+
     public List<List<Integer>> permuteUnique(int[] nums) {
-        Map<Integer, Integer> numberCounters = new HashMap<>(nums.length, 1f);
-        for (int num : nums) {
-            numberCounters.compute(num, (key, counter) -> {
-                if (counter == null) {
-                    return 1;
-                }
-                return counter + 1;
-            });
-        }
-        List<List<Integer>> result = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        permute(current, nums.length, numberCounters, result);
-        return result;
+        Arrays.sort(nums);
+        return permuteUnique(new ArrayList<>(), new ArrayList<>(), nums, 0);
     }
 
-    private void permute(List<Integer> current, int length, Map<Integer, Integer> numberCounters, List<List<Integer>> result) {
-        if (current.size() == length) {
+    private List<List<Integer>> permuteUnique(List<List<Integer>> result, List<Integer> current, int[] nums, int count) {
+        if (count == nums.length) {
             result.add(new ArrayList<>(current));
+            return result;
         }
-        for (Map.Entry<Integer, Integer> number : numberCounters.entrySet()) {
-            if (number.getValue() == 0) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == TAKEN || (i > 0 && nums[i] == nums[i - 1])) {
                 continue;
             }
-            number.setValue(number.getValue() - 1);
-            current.add(number.getKey());
-            permute(current, length, numberCounters, result);
-            number.setValue(number.getValue() + 1);
+            int num = nums[i];
+            nums[i] = TAKEN;
+            current.add(num);
+            permuteUnique(result, current, nums, count + 1);
             current.remove(current.size() - 1);
+            nums[i] = num;
         }
+        return result;
     }
 }
