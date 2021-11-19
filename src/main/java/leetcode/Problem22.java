@@ -3,25 +3,29 @@ package leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BACKTRACKING)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.TWO_TO_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem22 {
     public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-        generate(0, n, new StringBuilder(), result);
-        return result;
+        return dfs(new ArrayList<>(), new StringBuilder(), n, 0);
     }
 
-    private void generate(int openCount, int canOpen, StringBuilder current, List<String> result) {
-        if (openCount == 0 && canOpen == 0) {
+    private List<String> dfs(List<String> result, StringBuilder current, int n, int open) {
+        if (n == 0 && open == 0) {
             result.add(current.toString());
-            return;
+            return result;
         }
-        if (canOpen > 0) {
-            generate(openCount + 1, canOpen - 1, current.append('('), result);
+        if (n > 0) {
+            dfs(result, current.append("("), n - 1, open + 1);
             current.setLength(current.length() - 1);
         }
-        if (openCount > 0) {
-            generate(openCount - 1, canOpen, current.append(')'), result);
+        if (open > 0) {
+            dfs(result, current.append(")"), n, open - 1);
             current.setLength(current.length() - 1);
         }
+        return result;
     }
 }

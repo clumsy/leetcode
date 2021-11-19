@@ -2,21 +2,27 @@ package leetcode;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Problem22Test {
-    private Problem22 solution = new Problem22();
+    private final Problem22 solution = new Problem22();
 
     @Test
-    public void generateThree() {
-        assertThat(solution.generateParenthesis(3), is(
-            asList(
+    public void example1() {
+        assert Objects.equals(solution.generateParenthesis(3),
+            Arrays.asList(
                 "((()))",
                 "(()())",
                 "(())()",
                 "()(())",
-                "()()()")));
+                "()()()"));
+    }
+
+    @Test
+    public void example2() {
+        assert Objects.equals(solution.generateParenthesis(1),
+            Arrays.asList(
+                "()"));
     }
 }
