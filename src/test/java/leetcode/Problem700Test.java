@@ -2,16 +2,18 @@ package leetcode;
 
 import org.junit.Test;
 
-import static leetcode.Problem700.searchBST;
-import static leetcode.TreeNodes.bstOf;
-import static leetcode.TreeNodes.treeOf;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem700Test {
+    private final Problem700 solution = new Problem700();
 
     @Test
-    public void simple() {
-        assertThat(searchBST(bstOf(4, 2, 7, 1, 3), 2), is(bstOf(2, 1, 3)));
+    public void example1() {
+        TreeNode root = TreeNodes.treeOf(4,2,7,1,3);
+        assert solution.searchBST(root, 2) == root.left;
+    }
+
+    @Test
+    public void example2() {
+        TreeNode root = TreeNodes.treeOf(4,2,7,1,3);
+        assert solution.searchBST(root, 5) == null;
     }
 }
