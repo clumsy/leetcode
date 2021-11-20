@@ -1,9 +1,10 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
 @BeatsPercent(100)
 @Algorithms(Algorithm.DYNAMIC_PROGRAMMING)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem213 {
     public int rob(int[] nums) {
         int n = nums.length;
@@ -17,13 +18,13 @@ public class Problem213 {
     }
 
     public int rob(int[] nums, int lo, int hi) {
-        int last_robbed = 0;
-        int one_before_last_robbed = 0;
+        int robbed_last = 0;
+        int robbed_one_before_last = 0;
         for (int i = lo; i < hi; i++) {
-            int tmp = last_robbed;
-            last_robbed = Math.max(last_robbed, one_before_last_robbed + nums[i]);
-            one_before_last_robbed = tmp;
+            int tmp = robbed_last;
+            robbed_last = Math.max(robbed_last, robbed_one_before_last + nums[i]);
+            robbed_one_before_last = tmp;
         }
-        return Math.max(last_robbed, one_before_last_robbed);
+        return Math.max(robbed_last, robbed_one_before_last);
     }
 }
