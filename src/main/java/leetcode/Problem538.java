@@ -1,31 +1,32 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
 @Algorithms(Algorithm.BINARY_TREE_MORRIS_TRAVERSAL)
 @BeatsPercent(31.83)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem538 {
     public TreeNode convertBST(TreeNode root) {
         int sum = 0;
-        TreeNode tourist = root;
-        while (tourist != null) {
-            if (tourist.right == null) {
-                sum += tourist.val;
-                tourist.val = sum;
-                tourist = tourist.left;
+        TreeNode current = root;
+        while (current != null) {
+            if (current.right == null) {
+                sum += current.val;
+                current.val = sum;
+                current = current.left;
             } else {
-                TreeNode guide = tourist.right;
-                while (guide.left != null && guide.left != tourist) {
-                    guide = guide.left;
+                TreeNode predecessor = current.right;
+                while (predecessor.left != null && predecessor.left != current) {
+                    predecessor = predecessor.left;
                 }
-                if (guide.left == null) {
-                    guide.left = tourist;
-                    tourist = tourist.right;
+                if (predecessor.left == null) {
+                    predecessor.left = current;
+                    current = current.right;
                 } else {
-                    guide.left = null;
-                    sum += tourist.val;
-                    tourist.val = sum;
-                    tourist = tourist.left;
+                    predecessor.left = null;
+                    sum += current.val;
+                    current.val = sum;
+                    current = current.left;
                 }
             }
         }
