@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Algorithm {
     KADANE,
+    WAVEFRONT_EXPANSION,
     SET,
     STACK,
     FREQUENCY_COUNT,
