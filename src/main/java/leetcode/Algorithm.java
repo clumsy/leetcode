@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    ALIAS_METHOD,
     KADANE,
     WAVEFRONT_EXPANSION,
     SET,
