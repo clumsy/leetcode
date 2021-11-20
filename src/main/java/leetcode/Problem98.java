@@ -1,7 +1,7 @@
 package leetcode;
 
 @Difficulty(Level.MEDIUM)
-@Algorithms(Algorithm.RECURSION)
+@Algorithms(Algorithm.BINARY_TREE_MORRIS_TRAVERSAL)
 @BeatsPercent(37.30)
 @TimeComplexity(worst = Complexity.LINEAR_N)
 @SpaceComplexity(worst = Complexity.CONSTANT)
