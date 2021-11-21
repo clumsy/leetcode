@@ -1,25 +1,20 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.WAVEFRONT_EXPANSION)
+@BeatsPercent(99.51)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem45 {
     public int jump(int[] nums) {
-        int n = nums.length;
-        if (n <= 1) {
-            return 0;
-        }
-        int currentReach = nums[0];
-        int maxReach = currentReach;
-        int jumps = 1;
-        for (int i = 1; i < nums.length; i++) {
-            if (currentReach >= n - 1) {
-                return jumps;
-            }
-            int potentialReach = i + nums[i];
-            maxReach = Math.max(maxReach, potentialReach);
-            if (i == currentReach) {
-                currentReach = maxReach;
+        int jumps = 0;
+        for (int i = 0, reach = 0, max_reach = 0, n = nums.length; reach < n && i < n; i++) {
+            if (reach < i) {
+                reach = max_reach;
                 jumps++;
             }
+            max_reach = Math.max(max_reach, i + nums[i]);
         }
-        throw new RuntimeException("This should not happen");
+        return jumps;
     }
 }
