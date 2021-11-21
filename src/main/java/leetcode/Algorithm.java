@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Algorithm {
     ALIAS_METHOD,
+    BOYER_MOORE_MAJORITY_VOTING,
     KADANE,
     WAVEFRONT_EXPANSION,
     SET,
