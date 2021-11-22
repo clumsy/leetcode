@@ -2,58 +2,43 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.either;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Objects;
 
 public class Problem5Test {
-    protected Problem5 solution = new Problem5();
+    private final Problem5 solution = new Problem5();
 
-    public static class AlternativeTest extends Problem5Test {
-        {
-            this.solution = new Problem5.Alternative();
-        }
+    @Test
+    public void example1() {
+        assert Objects.equals(solution.longestPalindrome("babad"), "bab");
     }
 
     @Test
-    public void babad() {
-        String result = solution.longestPalindrome("babad");
-        assertThat(result, either(is("bab")).or(is("aba")));
+    public void example2() {
+        assert Objects.equals(solution.longestPalindrome("cbbd"), "bb");
     }
 
     @Test
-    public void cbbd() {
-        String result = solution.longestPalindrome("cbbd");
-        assertThat(result, is("bb"));
+    public void example3() {
+        assert Objects.equals(solution.longestPalindrome("a"), "a");
     }
 
     @Test
-    public void a() {
-        String result = solution.longestPalindrome("a");
-        assertThat(result, is("a"));
+    public void example4() {
+        assert Objects.equals(solution.longestPalindrome("abacab"), "bacab");
     }
 
     @Test
-    public void abacab() {
-        String result = solution.longestPalindrome("abacab");
-        assertThat(result, is("bacab"));
+    public void example5() {
+        assert Objects.equals(solution.longestPalindrome("caba"), "aba");
     }
 
     @Test
-    public void caba() {
-        String result = solution.longestPalindrome("caba");
-        assertThat(result, is("aba"));
+    public void example6() {
+        assert Objects.equals(solution.longestPalindrome("ccc"), "ccc");
     }
 
     @Test
-    public void ccc() {
-        String result = solution.longestPalindrome("ccc");
-        assertThat(result, is("ccc"));
-    }
-
-    @Test
-    public void aaabaaaa() {
-        String result = solution.longestPalindrome("aaabaaaa");
-        assertThat(result, is("aaabaaa"));
+    public void example7() {
+        assert Objects.equals(solution.longestPalindrome("aaabaaaa"), "aaabaaa");
     }
 }
