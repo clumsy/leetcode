@@ -1,8 +1,10 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
 @BeatsPercent(100)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem413 {
     public int numberOfArithmeticSlices(int[] nums) {
         int n = nums.length;
@@ -10,16 +12,12 @@ public class Problem413 {
             return 0;
         }
         int count = 0;
-        for (int i = 0, j = 1, diff = nums[1] - nums[0]; j < n; j++) {
-            int newDiff = j == n - 1 ? 0 : nums[j + 1] - nums[j];
-            if (j == n - 1 || newDiff != diff) {
-                while (j - i > 1) {
-                    count += j - i - 1;
-                    i++;
-                }
-                i = j;
+        for (int i = 2, length = 0; i < n; i++) {
+            if (nums[i] - nums[i - 1] == nums[i - 1] - nums[i - 2]) {
+                count += ++length;
+            } else {
+                length = 0;
             }
-            diff = newDiff;
         }
         return count;
     }

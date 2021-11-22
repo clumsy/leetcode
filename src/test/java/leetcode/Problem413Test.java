@@ -10,16 +10,31 @@ public class Problem413Test {
 
     @Test
     public void example1() {
-        assertThat(solution.numberOfArithmeticSlices(new int[] {1,2,3,4}), is(3));
+        int[] nums = {1,2,3,4};
+        assert solution.numberOfArithmeticSlices(nums) == 3;
     }
 
     @Test
     public void example2() {
-        assertThat(solution.numberOfArithmeticSlices(new int[] {1}), is(0));
+        int[] nums = {1};
+        assert solution.numberOfArithmeticSlices(nums) == 0;
     }
 
     @Test
     public void example3() {
-        assertThat(solution.numberOfArithmeticSlices(new int[] {1,2,3,8,9,10}), is(2));
+        int[] nums = {1,2,3,8,9,10};
+        assert solution.numberOfArithmeticSlices(nums) == 2;
+    }
+
+    @Test
+    public void example4() {
+        int[] nums = {2,1,3,4,2,3};
+        assert solution.numberOfArithmeticSlices(nums) == 0;
+    }
+
+    @Test
+    public void example5() {
+        int[] nums = {1,2,3,8,9,10};
+        assert solution.numberOfArithmeticSlices(nums) == 2;
     }
 }
