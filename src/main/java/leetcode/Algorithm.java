@@ -6,6 +6,7 @@ public enum Algorithm {
     BOYER_MOORE_MAJORITY_VOTING,
     KADANE,
     WAVEFRONT_EXPANSION,
+    TRIE,
     SET,
     STACK,
     FREQUENCY_COUNT,
