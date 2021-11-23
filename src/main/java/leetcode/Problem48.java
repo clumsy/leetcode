@@ -1,15 +1,19 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.SIMULATION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.QUADRATIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem48 {
     public void rotate(int[][] matrix) {
-        int length = matrix.length - 1;
-        for (int i = 0, iMax = (matrix.length + 1)/2; i < iMax; ++i) {
-            for (int j = i, jMax = length - i; j < jMax; ++j) {
-                int tmp = matrix[i][j];
-                matrix[i][j] = matrix[length - j][i];
-                matrix[length - j][i] = matrix[length - i][length - j];
-                matrix[length - i][length - j] = matrix[j][length - i];
-                matrix[j][length - i] = tmp;
+        for (int t = 0, n = matrix.length; t < n/2; t++) {
+            for (int k = t; k < n - 1 - t; k++) {
+                int tmp = matrix[k][n - 1 - t];
+                matrix[k][n - 1 - t] = matrix[t][k];
+                matrix[t][k] = matrix[n - 1 - k][t];
+                matrix[n - 1 - k][t] = matrix[n - 1 - t][n - 1 - k];
+                matrix[n - 1 - t][n - 1 - k] = tmp;
             }
         }
     }
