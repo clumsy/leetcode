@@ -18,6 +18,7 @@ public enum Algorithm {
     BIT_MANIPULATION,
     UNION_FIND,
     SIMULATION,
+    ELIMINATION,
     MERGE_INTERVAL,
     MATH,
     PREFIX_SUM,

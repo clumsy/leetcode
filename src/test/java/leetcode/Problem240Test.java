@@ -2,9 +2,6 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem240Test {
     private final Problem240 solution = new Problem240();
     
@@ -17,7 +14,7 @@ public class Problem240Test {
             {10,13,14,17},
             {18,21,23,26,30},
         };
-        assertThat(solution.searchMatrix(matrix, 5), is(true));
+        assert solution.searchMatrix(matrix, 5);
     }
     
     @Test
@@ -29,7 +26,7 @@ public class Problem240Test {
             {10,13,14,17,24},
             {18,21,23,26,30},
         };
-        assertThat(solution.searchMatrix(matrix, 20), is(false));
+        assert !solution.searchMatrix(matrix, 20);
     }
     
     @Test
@@ -41,6 +38,6 @@ public class Problem240Test {
             {16,17,18,19,20},
             {21,22,23,24,25},
         };
-        assertThat(solution.searchMatrix(matrix, 5), is(true));
+        assert solution.searchMatrix(matrix, 5);
     }
 }
