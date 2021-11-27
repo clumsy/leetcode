@@ -1,18 +1,24 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.MATH)
 @BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LOGARITHMIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem343 {
     public int integerBreak(int n) {
-        int[] dp = new int[n + 1];
-        dp[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            int max = 0;
-            for (int j = 1, half = i/2; j <= half; j++) { // the other half is symmetrical
-                int remainder = i - j;
-                max = Math.max(max, Math.max(j*remainder, j*dp[remainder]));
-            }
-            dp[i] = max;
+        switch (n) {
+            case 2: return 1; // 1*1
+            case 3: return 2; // 1*2
         }
-        return dp[n];
+        int num_3 = n / 3;
+        int remainder = n % 3;
+        if (remainder == 1) {
+            --num_3;
+            remainder = 4; // using one 3 to bump the remainder to 4 for the optimal product
+        } else if (remainder == 0) {
+            remainder = 1;
+        }
+        return (int) Math.pow(3, num_3) * remainder;
     }
 }
