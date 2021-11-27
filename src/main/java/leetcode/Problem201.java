@@ -1,38 +1,25 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.BIT_MANIPULATION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.CONSTANT)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem201 {
-    public static final class Alternative extends Problem201 {
-
-        @Override
-        public int rangeBitwiseAnd(int m, int n) {
-            if (m == n) {
-                return m;
-            }
-            int mask = -1 << log2(n - m) + 1;
-            return m & n & mask;
+    public int rangeBitwiseAnd(int m, int n) {
+        if (m == n) {
+            return m;
         }
-
-        public static int log2(int n){
-            if (n <= 0) {
-                throw new IllegalArgumentException();
-            }
-            return 31 - Integer.numberOfLeadingZeros(n);
-        }
+        int difference = n - m; // how many numbers in between
+        int most_significant_bit = 1 << log2(difference); // most significant bit to be flipped, i flips every 2^i 
+        int bits_to_remove = (most_significant_bit << 1) - 1;
+        return m & n & ~bits_to_remove;
     }
 
-    public int rangeBitwiseAnd(int m, int n) {
-        int result = 0;
-        int mask = 1;
-        while (mask <= n) {
-            if ((m & mask) != 0 && (m + mask > n || m + mask < 0)) {
-                result |= mask;
-            }
-            if (mask < 0) {
-                break;
-            }
-            m &= ~mask;
-            mask <<= 1;
+    private static int log2(int n) {
+        if (n <= 0) {
+            throw new IllegalArgumentException();
         }
-        return result;
+        return 31 - Integer.numberOfLeadingZeros(n);
     }
 }
