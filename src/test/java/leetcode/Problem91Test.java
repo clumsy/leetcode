@@ -2,49 +2,46 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-
 public class Problem91Test {
     private final Problem91 solution = new Problem91();
 
     @Test
     public void example1() {
-        assertThat(solution.numDecodings("12"), is(2));
+        assert solution.numDecodings("12") == 2;
     }
 
     @Test
     public void example2() {
-        assertThat(solution.numDecodings("226"), is(3));
+        assert solution.numDecodings("226") == 3;
     }
 
     @Test
     public void example3() {
-        assertThat(solution.numDecodings("0"), is(0));
+        assert solution.numDecodings("0") == 0;
     }
 
     @Test
     public void example4() {
-        assertThat(solution.numDecodings("06"), is(0));
+        assert solution.numDecodings("06") == 0;
     }
 
     @Test
     public void example5() {
-        assertThat(solution.numDecodings("1201234"), is(3));
+        assert solution.numDecodings("1201234") == 3;
     }
 
     @Test
     public void example6() {
-        assertThat(solution.numDecodings("123123"), is(9));
+        assert solution.numDecodings("123123") == 9;
     }
 
     @Test
     public void example7() {
-        assertThat(solution.numDecodings("207"), is(1));
+        assert solution.numDecodings("207") == 1;
     }
 
     @Test
     public void example8() {
-        assertThat(solution.numDecodings("230"), is(0));
+        assert solution.numDecodings("230") == 0;
     }
 }

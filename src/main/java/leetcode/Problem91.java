@@ -1,37 +1,25 @@
 package leetcode;
 
-@BeatsPercent(100)
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DYNAMIC_PROGRAMMING)
+@BeatsPercent(93.34)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem91 {
     public int numDecodings(String s) {
-        int N = s.length();
-        if (N == 0) {
-            return 0;
+        char[] ss = s.toCharArray();
+        int[] dp = new int[ss.length];
+        dp[0] = ss[0] == '0' ? 0 : 1;
+        for (int i = 1; i < ss.length; i++) {
+            int first = ss[i] - '0';
+            if (1 <= first && first <= 9) {
+                dp[i] += dp[i - 1];
+            }
+            int second = (ss[i - 1] - '0') * 10 + first;
+            if (10 <= second && second <= 26) {
+                dp[i] += i > 1 ? dp[i - 2] : 1;
+            }
         }
-        int[] cache = new int[N + 1];
-        for (int i = 0; i < N; i++) {
-            cache[i] = -1;
-        }
-        cache[N] = 1; // if we got to the last digit and it wasn't 0 we got 1 way
-        count(s, 0, N, cache);
-        return cache[0];
-    }
-
-    private int count(String s, int start, int end, int[] cache) {
-        int cached = cache[start];
-        if (cached >= 0) {
-            return cached;
-        }
-        char first = s.charAt(start);
-        if (first == '0') {
-            cache[start] = 0;
-            return 0;
-        }
-        int N = s.length();
-        int count = count(s, start + 1, N, cache);
-        if (start < N - 1 && Integer.parseInt(s.substring(start, start + 2)) < 27) {
-            count += count(s, start + 2, N, cache);
-        }
-        cache[start] = count;
-        return count;
+        return dp[ss.length - 1];
     }
 }
