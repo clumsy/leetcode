@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    FLOYD_CYCLE_DETECTION,
     FISHER_YATES_SHUFFLE,
     CONSTRUCT_AROUND_THE_MIDDLE,
     ALIAS_METHOD,

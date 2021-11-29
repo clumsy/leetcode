@@ -1,20 +1,33 @@
 package leetcode;
 
-import java.util.HashSet;
-import java.util.Set;
-
+@Difficulty(Level.EASY)
+@Algorithms(Algorithm.FLOYD_CYCLE_DETECTION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N) // ?
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem202 {
     public boolean isHappy(int n) {
-        Set<Integer> visited = new HashSet<>();
-        while (n != 1 && visited.add(n)) {
-            int next = 0;
-            while (n > 0) {
-                int digit = n % 10;
-                next += digit * digit;
-                n /= 10;
+        int slow = n;
+        int fast = n;
+        while (true) {
+            slow = sum(slow);
+            fast = sum(sum(fast));
+            if (fast == 1) {
+                return true;
             }
-            n = next;
+            if (slow == fast) {
+                return false;
+            }
         }
-        return n == 1;
+    }
+    
+    private int sum(int n) {
+        int sum = 0;
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+        return sum;
     }
 }
