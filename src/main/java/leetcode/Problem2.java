@@ -1,38 +1,28 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N) // where N is max length of l1 and l2
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem2 {
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int carry = 0, value = l1.val + l2.val;
-        if (value > 9) {
-            carry = value / 10;
-            value %= 10;
-        }
-        ListNode result = new ListNode(value), current = result;
-        l1 = l1.next;
-        l2 = l2.next;
-        while (l1 != null || l2 != null) {
-            value = carry;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode();
+        ListNode current = dummy;
+        int carry = 0;
+        while (carry > 0 || l1 != null || l2 != null) {
             if (l1 != null) {
-                value += l1.val;
+                carry += l1.val;
                 l1 = l1.next;
             }
             if (l2 != null) {
-                value += l2.val;
+                carry += l2.val;
                 l2 = l2.next;
             }
-            if (value > 9) {
-                carry = value / 10;
-                value %= 10;
-            } else {
-                carry = 0;
-            }
-            ListNode next = new ListNode(value);
-            current.next = next;
-            current = next;
+            current.next = new ListNode(carry % 10);
+            current = current.next;
+            carry /= 10;
         }
-        if (carry > 0) {
-            current.next = new ListNode(carry);
-        }
-        return result;
+        return dummy.next;
     }
 }
