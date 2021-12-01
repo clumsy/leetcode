@@ -1,8 +1,5 @@
 package leetcode;
 
-import static org.junit.Assert.assertThat;
-
-import static org.hamcrest.core.Is.is;
 import org.junit.Test;
 
 public class Problem160Test {
@@ -15,6 +12,6 @@ public class Problem160Test {
         first.next = common;
         ListNode second = ListNodes.list(5,6,1);
         second.next = common;
-        assertThat(solution.getIntersectionNode(first, second), is(common));
+        assert solution.getIntersectionNode(first, second) == common;
     }
 }
