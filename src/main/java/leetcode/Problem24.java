@@ -1,53 +1,23 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.SIMULATION)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem24 {
-    public static final class Alternative extends Problem24 {
-
-        @Override
-        public ListNode swapPairs(ListNode head) {
-            ListNode dummy = new ListNode(0);
-            dummy.next = head;
-            ListNode point = dummy;
-            while (point.next != null && point.next.next != null) {
-                ListNode swap1 = point.next;
-                ListNode swap2 = point.next.next;
-                point.next = swap2;
-                swap1.next = swap2.next;
-                swap2.next = swap1;
-                point = swap1;
-            }
-            return dummy.next;
-        }
-    }
-
     public ListNode swapPairs(ListNode head) {
-        if (head == null) {
-            return null;
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode current = dummy;
+        while (current.next != null && current.next.next != null) {
+            ListNode tmp = current.next;
+            current.next = current.next.next;
+            ListNode next = current.next.next;
+            current.next.next = tmp;
+            tmp.next = next;
+            current = tmp;
         }
-        ListNode newHead = head.next;
-        if (newHead == null) {
-            return head;
-        }
-        ListNode current = head;
-        ListNode adjacent = newHead;
-        ListNode previousAdjacent = null;
-        ListNode rest = newHead.next;
-        while (adjacent != null) {
-            current.next = rest;
-            adjacent.next = current;
-            if (previousAdjacent != null) {
-                previousAdjacent.next = adjacent;
-            }
-            if (rest == null) {
-                return newHead;
-            }
-            previousAdjacent = current;
-            current = rest;
-            adjacent = current.next;
-            if (adjacent != null) {
-                rest = adjacent.next;
-            }
-        }
-        return newHead;
+        return dummy.next;
     }
 }
