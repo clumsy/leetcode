@@ -10,6 +10,7 @@ public enum Algorithm {
     KADANE,
     WAVEFRONT_EXPANSION,
     TRIE,
+    DOUBLE_LINKED_LIST,
     SET,
     STACK,
     FREQUENCY_COUNT,
