@@ -1,5 +1,7 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
 @BeatsPercent(100)
 @TimeComplexity(worst = Complexity.LINEAR_N, best = Complexity.LINEAR_N)
 @SpaceComplexity(worst = Complexity.CONSTANT, best = Complexity.CONSTANT)
