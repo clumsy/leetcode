@@ -1,47 +1,37 @@
 package leetcode;
 
-@BeatsPercent(99.81)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.TWO_POINTERS)
+@BeatsPercent(99.92)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem143 {
     public void reorderList(ListNode head) {
-        if (head == null || head.next == null) {
-            return;
-        }
-        ListNode prev = head;
-        ListNode slow = head;
         ListNode fast = head;
-        while (fast != null && fast.next != null) {
-            prev = slow;
+        ListNode slow = head;
+        while (fast != null && fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        // slow is in the middle, cut in half
-        prev.next = null;
-
-        // reversing second half
-        prev = null;
-        ListNode next;
-        while (slow != null) {
-            next = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = next;
+        if (fast.next != null) {
+            fast = fast.next;
         }
-
-        // slow is at the end of reversed second half
-        ListNode start = head;
-        ListNode end = prev;
-        while (start != null) {
-            ListNode start_next = start.next;
-            start.next = end;
-            if (start_next == null) {
-                break;
-            }
-            ListNode end_next = end.next;
-            end.next = start_next;
-            start = start_next;
-            end = end_next;
+        ListNode next = slow.next;
+        slow.next = null;
+        while (next != null) {
+            ListNode tmp = next.next;
+            next.next = slow;
+            slow = next;
+            next = tmp;
+        }
+        slow = head;
+        while (slow != null) {
+            ListNode tmp1 = slow.next;
+            slow.next = fast;
+            ListNode tmp2 = fast.next;
+            fast.next = tmp1;
+            slow = tmp1;
+            fast = tmp2;
         }
     }
 }
