@@ -3,22 +3,26 @@ package leetcode;
 import org.junit.Test;
 
 import java.util.Arrays;
-
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Objects;
 
 public class Problem187Test {
     private final Problem187 solution = new Problem187();
     
     @Test
     public void example1() {
-        assertThat(solution.findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"),
-            is(Arrays.asList("AAAAACCCCC","CCCCCAAAAA")));
+        assert Objects.equals(solution.findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"),
+            Arrays.asList("AAAAACCCCC","CCCCCAAAAA"));
     }
     
     @Test
     public void example2() {
-        assertThat(solution.findRepeatedDnaSequences("AAAAAAAAAAAAA"),
-            is(Arrays.asList("AAAAAAAAAA")));
+        assert Objects.equals(solution.findRepeatedDnaSequences("AAAAAAAAAAAAA"),
+            Arrays.asList("AAAAAAAAAA"));
+    }
+    
+    @Test
+    public void example3() {
+        assert Objects.equals(solution.findRepeatedDnaSequences("AAAAAAAAA"),
+            Arrays.asList());
     }
 }
