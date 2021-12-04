@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    JOSEPHUS_PROBLEM,
     BASIC_GEOMETRY,
     FLOYD_CYCLE_DETECTION,
     FISHER_YATES_SHUFFLE,
