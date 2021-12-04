@@ -41,4 +41,9 @@ public class Problem5Test {
     public void example7() {
         assert Objects.equals(solution.longestPalindrome("aaabaaaa"), "aaabaaa");
     }
+
+    @Test
+    public void example8() {
+        assert Objects.equals(solution.longestPalindrome("bb"), "bb");
+    }
 }

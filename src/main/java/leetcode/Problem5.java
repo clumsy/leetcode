@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.Arrays;
-
 @Difficulty(Level.MEDIUM)
 @Algorithms(Algorithm.CONSTRUCT_AROUND_THE_MIDDLE)
 @BeatsPercent(98.08)
@@ -10,22 +8,24 @@ import java.util.Arrays;
 public class Problem5 {
     public String longestPalindrome(String s) {
         char[] ss = s.toCharArray();
-        int m = 0, max_length = 0;
+        int max_length = 1;
+        int middle = 0;
         for (int i = 0; i < ss.length; i++) {
             int length = Math.max(largestPalindrome(ss, i, i), largestPalindrome(ss, i, i + 1));
             if (max_length < length) {
                 max_length = length;
-                m = i;
+                middle = i;
             }
         }
-        return new String(Arrays.copyOfRange(ss, m - (max_length - 1)/2, m - (max_length - 1)/2 + max_length));
+        int start = middle - (max_length - 1) / 2;
+        return s.substring(start, start + max_length);
     }
 
-    private int largestPalindrome(char[] s, int l, int r) {
-        while (l >= 0 && r < s.length && s[l] == s[r]) {
-            l--;
-            r++;
+    private int largestPalindrome(char[] s, int left, int right) {
+        while (left >= 0 && right < s.length && s[left] == s[right]) {
+            left--;
+            right++;
         }
-        return r - l - 1;
+        return right - left - 1;
     }
 }
