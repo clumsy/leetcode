@@ -1,26 +1,32 @@
 package leetcode;
 
-import java.util.HashMap;
-import java.util.Map;
-
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.STACK)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N) // the stack depth
 public class Problem105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        Map<Integer, Integer> inMap = new HashMap<>();
-        for(int i = 0; i < inorder.length; i++) {
-            inMap.put(inorder[i], i);
+        TreeNode[] stack = new TreeNode[preorder.length];
+        int size = 0;
+        TreeNode root = new TreeNode(preorder[0]);
+        TreeNode current = root;
+        for (int pre = 1, in = 0; pre < preorder.length && in < inorder.length; pre++) {
+            if (current.val != inorder[in]) {
+                current.left = new TreeNode(preorder[pre]);
+                stack[size++] = current;
+                current = current.left;
+            } else {
+                ++in; // found current, checking next
+                // as long as preorder follows inorder, popping the stack
+                while (size > 0 && stack[size - 1].val == inorder[in]) {
+                    current = stack[--size];
+                    ++in;
+                }
+                current.right = new TreeNode(preorder[pre]);
+                current = current.right;
+            }
         }
-        return construct(preorder, 0 , preorder.length - 1, inorder, 0, inorder.length - 1, inMap);
-    }
-
-    private TreeNode construct(int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd, Map<Integer, Integer> inMap) {
-        if (preStart > preEnd || inStart > inEnd) {
-            return null;
-        }
-        TreeNode root = new TreeNode(preorder[preStart]);
-        int inRoot = inMap.get(root.val);
-        int numsLeft = inRoot - inStart;
-        root.left = construct(preorder, preStart + 1, preStart + numsLeft, inorder, inStart, inRoot - 1, inMap);
-        root.right = construct(preorder, preStart + numsLeft + 1, preEnd, inorder, inRoot + 1, inEnd, inMap);
         return root;
     }
 }
