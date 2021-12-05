@@ -1,34 +1,33 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.IN_ORDER_TRAVERSAL)
+@BeatsPercent(100)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N) // the stack width
 public class Problem103 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<List<Integer>> result = new ArrayList<>();
-        insert(root, 0, result);
-        return result;
+        return solve(new ArrayList<>(), root, 0);
     }
 
-    private static void insert(TreeNode current, int level, List<List<Integer>> result) {
-        if (level >= result.size()) {
-            LinkedList<Integer> nextLevel = new LinkedList<>();
-            nextLevel.add(current.val);
-            result.add(nextLevel);
+    private List<List<Integer>> solve(List<List<Integer>> result, TreeNode root, int depth) {
+        if (root == null) {
+            return result;
+        }
+        if (result.size() < depth + 1) {
+            result.add(new LinkedList<>());
+        }
+        if ((depth & 1) == 0) {
+            result.get(depth).add(root.val);
         } else {
-            if (level % 2 == 0) {
-                result.get(level).add(current.val);
-            } else {
-                result.get(level).add(0, current.val);
-            }
+            ((LinkedList<Integer>) result.get(depth)).addFirst(root.val);
         }
-        if (current.left != null) {
-            insert(current.left, level + 1, result);
-        }
-        if (current.right != null) {
-            insert(current.right, level + 1, result);
-        }
+        solve(result, root.left, depth + 1);
+        solve(result, root.right, depth + 1);
+        return result;
     }
 }

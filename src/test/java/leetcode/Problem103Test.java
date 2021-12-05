@@ -2,37 +2,43 @@ package leetcode;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static leetcode.TreeNodes.treeOf;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class Problem103Test {
-    protected Problem103 solution = new Problem103();
+    private final Problem103 solution = new Problem103();
 
     @Test
     public void example1() {
-        assertThat(solution.zigzagLevelOrder(null), is(emptyList()));
+        TreeNode root = TreeNodes.treeOf();
+        assert Objects.equals(solution.zigzagLevelOrder(root),
+            Arrays.asList());
     }
 
     @Test
     public void example2() {
-        assertThat(solution.zigzagLevelOrder(treeOf(3, 9, 20, null, null, 15, 7)), is(
-            asList(
-                singletonList(3),
-                asList(20, 9),
-                asList(15, 7))));
+        TreeNode root = TreeNodes.treeOf(3,9,20,null,null,15,7);
+        assert Objects.equals(solution.zigzagLevelOrder(root),
+            Arrays.asList(
+                Arrays.asList(3),
+                Arrays.asList(20,9),
+                Arrays.asList(15,7)));
     }
 
     @Test
     public void example3() {
-        assertThat(solution.zigzagLevelOrder(treeOf(1, 2, 3, 4, null, null, 5)), is(
-            asList(
-                singletonList(1),
-                asList(3, 2),
-                asList(4, 5))));
+        TreeNode root = TreeNodes.treeOf(1,2,3,4,null,null,5);
+        assert Objects.equals(solution.zigzagLevelOrder(root),
+            Arrays.asList(
+                Arrays.asList(1),
+                Arrays.asList(3,2),
+                Arrays.asList(4,5)));
     }
 
     @Test
