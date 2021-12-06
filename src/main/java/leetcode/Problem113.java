@@ -1,30 +1,33 @@
 package leetcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.DEPTH_FIRST_SEARCH)
+@BeatsPercent(99.93)
+@TimeComplexity(worst = Complexity.LINEAR_N)
+@SpaceComplexity(worst = Complexity.LINEAR_N) // the stack depth
 public class Problem113 {
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        List<List<Integer>> result = new ArrayList<>();
-        doFindPathSum(root, sum, new ArrayList<>(), result);
-        return result;
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        return dfs(root, targetSum, new ArrayList<>(), new ArrayList<>());
     }
 
-    private static void doFindPathSum(TreeNode current, int currentRemains, List<Integer> resultItem, List<List<Integer>> result) {
-        int remains = currentRemains - current.val;
-        resultItem.add(current.val);
-        if (remains == 0 && current.left == null && current.right == null) {
-            result.add(new ArrayList<>(resultItem));
-        } else {
-            if (current.left != null) {
-                doFindPathSum(current.left, remains, resultItem, result);
-            }
-            if (current.right != null) {
-                doFindPathSum(current.right, remains, resultItem, result);
-            }
+    private List<List<Integer>> dfs(TreeNode root, int targetSum, List<List<Integer>> result, List<Integer> path) {
+        if (root == null) {
+            return result;
         }
-        resultItem.remove(resultItem.size() - 1);
+        path.add(root.val);
+        targetSum -= root.val;
+        if (root.left == null && root.right == null) {
+            if (targetSum == 0) {
+                result.add(new ArrayList<>(path));
+            }
+        } else {
+            dfs(root.right, targetSum, result, path);
+            dfs(root.left, targetSum, result, path);
+        }
+        path.remove(path.size() - 1);
+        return result;
     }
 }
