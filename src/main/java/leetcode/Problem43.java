@@ -1,45 +1,32 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.SIMULATION)
+@BeatsPercent(99.04)
+@TimeComplexity(worst = Complexity.N_BY_M) // where N is the length of num1, M is the length of num2
+@SpaceComplexity(worst = Complexity.N_PLUS_M)
 public class Problem43 {
     public String multiply(String num1, String num2) {
-        switch (num1) {
-            case "0":
-                return "0";
-            case "1":
-                return num2;
-        }
-        switch (num2) {
-            case "0":
-                return "0";
-            case "1":
-                return num1;
-        }
-        char[] s1 = num1.toCharArray();
-        char[] s2 = num2.toCharArray();
-        int length1 = num1.length();
-        int length2 = num2.length();
-        int resultLength = length1 + length2;
-        int[] result = new int[resultLength];
-        for (int i = length1 - 1; i >= 0; --i) {
-            for (int j = length2 - 1; j >= 0; --j) {
-                result[resultLength - i - j - 2] += (s1[i] - '0')*(s2[j] - '0');
+        char[] n1 = num1.toCharArray();
+        char[] n2 = num2.toCharArray();
+        int[] result = new int[n1.length + n2.length];
+        // multiplying each pair or digits and updating results in corresponding result positions
+        for (int i = n1.length - 1; i >= 0; --i) {
+            for (int j = n2.length - 1; j >= 0; --j) {
+                int product = (n1[i] - '0')*(n2[j] - '0');
+                int pos_1 = i + j;
+                int pos_2 = i + j + 1;
+                int sum = product + result[pos_2];
+                result[pos_1] += sum/10;
+                result[pos_2] = sum % 10;
             }
         }
-        for (int k = 0; k < resultLength - 1; ++k) {
-            result[k + 1] += result[k]/10;
-            result[k] %= 10;
+        StringBuilder sb = new StringBuilder();
+        for (int p : result) {
+            if (sb.length() != 0 || p != 0) {
+                sb.append(p);
+            }
         }
-        int i = resultLength - 1;
-        while (i >= 0 && result[i] == 0) {
-            i--;
-        }
-        if (i < 0) {
-            return "0";
-        }
-        StringBuilder builder = new StringBuilder();
-        while (i >= 0) {
-            builder.append(result[i--]);
-        }
-        return builder.toString();
+        return sb.length() == 0 ? "0" : sb.toString();
     }
 }
