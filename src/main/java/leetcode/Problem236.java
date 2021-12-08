@@ -1,5 +1,7 @@
 package leetcode;
 
+@Difficulty(Level.MEDIUM)
+@Algorithms(Algorithm.RECURSION)
 @BeatsPercent(100)
 @TimeComplexity(worst = Complexity.LINEAR_N)
 @SpaceComplexity(worst = Complexity.LINEAR_N)
