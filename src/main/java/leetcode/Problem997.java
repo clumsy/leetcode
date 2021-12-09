@@ -3,7 +3,7 @@ package leetcode;
 @Difficulty(Level.EASY)
 @Algorithms(Algorithm.FREQUENCY_COUNT)
 @BeatsPercent(83.07)
-@TimeComplexity(worst = Complexity.LINEAR_K) // where K is the maximum of N and length of trusts array
+@TimeComplexity(worst = Complexity.N_PLUS_K) // where K = trust.length
 @SpaceComplexity(worst = Complexity.LINEAR_N)
 public class Problem997 {
     public int findJudge(int n, int[][] trust) {
