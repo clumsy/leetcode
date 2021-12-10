@@ -6,15 +6,15 @@ package leetcode;
 @SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem334 {
     public boolean increasingTriplet(int[] nums) {
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MAX_VALUE;
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
         for (int n : nums) {
-            if (n <= min) {
-                min = n;
-            } else if (n <= max) { // update small if n is smaller than both
-                max = n;
-            } else { // update big only if greater than small but smaller than big
-                return true; // return if you find a number bigger than both
+            if (n <= first) {
+                first = n; // update small if n is smaller than both
+            } else if (n <= second) {
+                second = n; // update big only if greater than small but smaller than big
+            } else {
+                return true; // return if you find a number bigger than both, no matter when they were set
             }
         }
         return false;
