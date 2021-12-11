@@ -2,19 +2,20 @@ package leetcode;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import java.util.Arrays;
 
 public class Problem973Test {
     private final Problem973 solution = new Problem973();
     
     @Test
     public void example1() {
-        assertThat(solution.kClosest(new int[][] {{1,3}, {-2,2}}, 1), is(new int[][] {{-2,2}}));
+        int[][] points = {{1,3},{-2,2}};
+        assert Arrays.deepEquals(solution.kClosest(points, 1), new int[][]{{-2,2}});
     }
     
     @Test
     public void example2() {
-        assertThat(solution.kClosest(new int[][] {{3,3}, {5,-1}, {-2,4}}, 2), is(new int[][] {{3,3}, {-2,4}}));
+        int[][] points = {{3,3},{5,-1},{-2,4}};
+        assert Arrays.deepEquals(solution.kClosest(points, 2), new int[][] {{3,3},{-2,4}});
     }
 }

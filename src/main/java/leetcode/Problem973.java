@@ -2,12 +2,16 @@ package leetcode;
 
 import java.util.Arrays;
 
+@Difficulty(Level.MEDIUM)
 @BeatsPercent(91.87)
 @Algorithms(Algorithm.QUICK_SELECT)
-@TimeComplexity(Complexity.LINEAR_N)
-@SpaceComplexity(Complexity.CONSTANT)
+@TimeComplexity(average = Complexity.LINEAR_N, worst = Complexity.QUADRATIC_N)
+@SpaceComplexity(worst = Complexity.CONSTANT)
 public class Problem973 {
     public int[][] kClosest(int[][] points, int k) {
+        if (k >= points.length) {
+            return points;
+        }
         int lo = 0;
         int hi = points.length - 1;
         while (lo <= hi) {
