@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    LAZY_UPDATE,
     INTERVAL_SCHEDULING,
     JOSEPHUS_PROBLEM,
     BASIC_GEOMETRY,
