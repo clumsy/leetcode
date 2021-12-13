@@ -2,6 +2,7 @@ package leetcode;
 
 public enum Algorithm {
     LAZY_UPDATE,
+    LEFT_TO_RIGHT_RIGHT_TO_LEFT,
     EUCLIDEAN_DIVISION,
     INTERVAL_SCHEDULING,
     JOSEPHUS_PROBLEM,
