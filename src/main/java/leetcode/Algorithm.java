@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    GREEDY,
     LAZY_UPDATE,
     LEFT_TO_RIGHT_RIGHT_TO_LEFT,
     EUCLIDEAN_DIVISION,
