@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    REVERSED,
     GREEDY,
     LAZY_UPDATE,
     LEFT_TO_RIGHT_RIGHT_TO_LEFT,
@@ -19,6 +20,7 @@ public enum Algorithm {
     DOUBLE_LINKED_LIST,
     SET,
     STACK,
+    QUEUE,
     FREQUENCY_COUNT,
     PRIORITY_QUEUE,
     MAP,
