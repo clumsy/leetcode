@@ -1,6 +1,7 @@
 package leetcode;
 
 public enum Algorithm {
+    CONSTRUCTIVE,
     REVERSED,
     GREEDY,
     LAZY_UPDATE,
