@@ -1,7 +1,3 @@
-/target
-/.idea
-/bin
-/lib
-pyvenv.cfg
+/.venv
 *.iml
 *.ipynb_checkpoints
