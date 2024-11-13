@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        [Problem 382](https://leetcode.com/problems/linked-list-random-node/description)
-        """
-    )
+    mo.md("[Problem 382](https://leetcode.com/problems/linked-list-random-node)")
     return
 
 

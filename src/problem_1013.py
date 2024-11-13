@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1013](https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum/description)
-        """
-    )
+    mo.md("[Problem 1013](https://leetcode.com/problems/partition-array-into-three-parts-with-equal-sum)")
     return
 
 

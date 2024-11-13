@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1035](https://leetcode.com/problems/uncrossed-lines/description)
-        """
-    )
+    mo.md("[Problem 1035](https://leetcode.com/problems/uncrossed-lines)")
     return
 
 

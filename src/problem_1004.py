@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1004](https://leetcode.com/problems/max-consecutive-ones-iii/description)
-        """
-    )
+    mo.md("[Problem 1004](https://leetcode.com/problems/max-consecutive-ones-iii)")
     return
 
 

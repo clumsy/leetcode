@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1910](https://leetcode.com/problems/remove-all-occurrences-of-a-substring/description)
-        """
-    )
+    mo.md("[Problem 1910](https://leetcode.com/problems/remove-all-occurrences-of-a-substring)")
     return
 
 

@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split/description)")
+    mo.md("[Problem 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split)")
     return
 
 

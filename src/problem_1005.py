@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1005](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/description)
-        """
-    )
+    mo.md("[Problem 1005](https://leetcode.com/problems/maximize-sum-of-array-after-k-negations)")
     return
 
 

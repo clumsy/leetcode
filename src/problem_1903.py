@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1903](https://leetcode.com/problems/largest-odd-number-in-string/description)
-        """
-    )
+    mo.md("[Problem 1903](https://leetcode.com/problems/largest-odd-number-in-string)")
     return
 
 

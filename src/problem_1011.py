@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1011](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/description)
-        """
-    )
+    mo.md("[Problem 1011](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days)")
     return
 
 

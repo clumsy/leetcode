@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(rf"[Problem 3159](https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array/description)")
+    mo.md("[Problem 3159](https://leetcode.com/problems/find-occurrences-of-an-element-in-an-array)")
     return
 
 

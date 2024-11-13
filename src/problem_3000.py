@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        [Problem 3000](https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle/description)
-        """
-    )
+    mo.md("[Problem 3000](https://leetcode.com/problems/maximum-area-of-longest-diagonal-rectangle)")
     return
 
 

@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        [Problem 2085](https://leetcode.com/problems/count-common-words-with-one-occurrence/description)
-        """
-    )
+    mo.md("[Problem 2085](https://leetcode.com/problems/count-common-words-with-one-occurrence)")
     return
 
 

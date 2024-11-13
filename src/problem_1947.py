@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 1947](https://leetcode.com/problems/maximum-compatibility-score-sum/description)")
+    mo.md("[Problem 1947](https://leetcode.com/problems/maximum-compatibility-score-sum)")
     return
 
 

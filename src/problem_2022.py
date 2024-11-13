@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md(
-        r"""
-        [Problem 2022](https://leetcode.com/problems/convert-1d-array-into-2d-array/description)
-        """
-    )
+    mo.md("[Problem 2022](https://leetcode.com/problems/convert-1d-array-into-2d-array)")
     return
 
 

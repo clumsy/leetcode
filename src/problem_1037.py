@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1037](https://leetcode.com/problems/valid-boomerang/description)
-        """
-    )
+    mo.md("[Problem 1037](https://leetcode.com/problems/valid-boomerang)")
     return
 
 

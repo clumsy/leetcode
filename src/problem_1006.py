@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1006](https://leetcode.com/problems/clumsy-factorial/description)
-        """
-    )
+    mo.md("[Problem 1006](https://leetcode.com/problems/clumsy-factorial)")
     return
 
 

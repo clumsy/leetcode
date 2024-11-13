@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 2799](https://leetcode.com/problems/count-complete-subarrays-in-an-array/description)")
+    mo.md("[Problem 2799](https://leetcode.com/problems/count-complete-subarrays-in-an-array)")
     return
 
 

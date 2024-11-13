@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1030](https://leetcode.com/problems/matrix-cells-in-distance-order/description)
-        """
-    )
+    mo.md("[Problem 1030](https://leetcode.com/problems/matrix-cells-in-distance-order)")
     return
 
 

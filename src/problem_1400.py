@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem](https://leetcode.com/problems/construct-k-palindrome-strings/description)")
+    mo.md("[Problem](https://leetcode.com/problems/construct-k-palindrome-strings)")
     return
 
 

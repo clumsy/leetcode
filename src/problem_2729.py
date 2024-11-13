@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 2729](https://leetcode.com/problems/check-if-the-number-is-fascinating/description)
-        """
-    )
+    mo.md("[Problem 2729](https://leetcode.com/problems/check-if-the-number-is-fascinating)")
     return
 
 

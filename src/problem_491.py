@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 491](https://leetcode.com/problems/non-decreasing-subsequences/description)")
+    mo.md("[Problem 491](https://leetcode.com/problems/non-decreasing-subsequences)")
     return
 
 

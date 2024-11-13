@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 935](https://leetcode.com/problems/knight-dialer/description)")
+    mo.md("[Problem 935](https://leetcode.com/problems/knight-dialer)")
     return
 
 

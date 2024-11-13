@@ -6,11 +6,7 @@ app = marimo.App()
 
 @app.cell
 def _(mo):
-    mo.md(
-        r"""
-        [Problem 1018](https://leetcode.com/problems/binary-prefix-divisible-by-5/description)
-        """
-    )
+    mo.md("[Problem 1018](https://leetcode.com/problems/binary-prefix-divisible-by-5)")
     return
 
 

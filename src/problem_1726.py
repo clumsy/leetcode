@@ -6,7 +6,7 @@ app = marimo.App()
 
 @app.cell
 def __(mo):
-    mo.md("[Problem 1726](https://leetcode.com/problems/tuple-with-same-product/description)")
+    mo.md("[Problem 1726](https://leetcode.com/problems/tuple-with-same-product)")
     return
 
 
