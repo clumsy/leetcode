@@ -9,7 +9,6 @@ class Solution:
             for r in range(l + 2, n - 1):
                 if p[l][y] <= p[r][y] <= p[l + 1][y]:
                     if p[l][y] == p[r][y] and p[l + 1][y] == p[r + 1][y]:
-                        print(p[l], p[l + 1], p[r], p[r + 1])
                         res = max(res, (p[r][x] - p[l][x]) * (p[l + 1][y] - p[l][y]))
                     break
         return res
