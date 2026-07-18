@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![Problems Solved](https://img.shields.io/badge/Solutions-950-success)
-![Last Updated](https://img.shields.io/badge/Last%20Updated-Feb%202026-blue)
 ![License](https://img.shields.io/badge/License-Apache%202.0-orange)
 
 Personal collection of [LeetCode](https://leetcode.com) problem solutions in Python.
